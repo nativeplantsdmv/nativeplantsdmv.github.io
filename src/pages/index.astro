@@ -8,8 +8,8 @@ const lastUpdated = 'March 2026';
 
 <!-- Hero Section -->
 <section class="relative bg-gradient-to-b from-green-700 to-green-600 text-white -mt-24 pt-24 pb-16 sm:py-20 rounded-b-3xl sm:mx-auto max-w-6xl">
-  <div class="container-narrow flex flex-col md:flex-row items-center gap-8">
-    <div class="flex-1 space-y-6">
+  <div class="container-narrow">
+    <div class="space-y-6">
       <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-tight break-words">
         Welcome to<br/>NativePlantsDMV.com
       </h1>
@@ -20,11 +20,13 @@ const lastUpdated = 'March 2026';
         Spring '26 Plant exchanges listed on our <a href="/events/" class="underline font-medium hover:text-white transition-colors">Current Events</a> page.
       </p>
     </div>
-    <div class="flex-shrink-0">
+
+    <!-- Butterfly/flower images under main text -->
+    <div class="flex justify-center gap-4 mt-8">
       <img
         src="/images/coneflower-monarch.jpg"
         alt="Purple coneflower with a monarch butterfly on it"
-        class="rounded-xl shadow-2xl w-full max-w-xs sm:max-w-sm object-cover"
+        class="rounded-xl shadow-2xl w-full sm:w-64 object-cover"
         loading="eager"
       />
     </div>
@@ -32,28 +34,27 @@ const lastUpdated = 'March 2026';
 
   <!-- Signs section merged into hero -->
   <div class="container-narrow mt-10 pt-8 border-t border-green-500/30">
-    <div class="flex flex-col md:flex-row items-center gap-6">
-      <div class="flex-shrink-0 flex gap-4">
-        <img
-          src="/images/native-plants-sign-front.jpg"
-          alt="Native Plants sign front view"
-          class="rounded-lg shadow-md w-32 sm:w-40 object-cover"
-          loading="eager"
-        />
-        <img
-          src="/images/native-plants-sign-back.jpg"
-          alt="Native Plants sign back view"
-          class="rounded-lg shadow-md w-32 sm:w-40 object-cover"
-          loading="eager"
-        />
-      </div>
-      <div class="flex-1 text-center md:text-left">
-        <h2 class="text-xl font-bold mb-2">Native Plant Signs Available</h2>
-        <p class="text-green-100 mb-2">$5 donation: pick up in Takoma Park, or delivery nearby</p>
-        <p class="text-sm text-green-200">
-          Contact for more information: <a href="mailto:kallen808@gmail.com" class="underline hover:text-white transition-colors">kallen808@gmail.com</a>
-        </p>
-      </div>
+    <!-- Yard sign photos above the text -->
+    <div class="flex justify-center gap-6 flex-wrap mb-4">
+      <img
+        src="/images/native-plants-sign-front.jpg"
+        alt="Native Plants sign front view"
+        class="rounded-lg shadow-md max-w-xs w-full"
+        loading="eager"
+      />
+      <img
+        src="/images/native-plants-sign-back.jpg"
+        alt="Native Plants sign back view"
+        class="rounded-lg shadow-md max-w-xs w-full"
+        loading="eager"
+      />
+    </div>
+    <div class="text-center">
+      <h2 class="text-xl font-bold mb-2">Native Plant Signs Available</h2>
+      <p class="text-green-100 mb-2">$5 donation: pick up in Takoma Park, or delivery nearby</p>
+      <p class="text-sm text-green-200">
+        Contact for more information: <a href="mailto:kallen808@gmail.com" class="underline hover:text-white transition-colors">kallen808@gmail.com</a>
+      </p>
     </div>
   </div>
 </section>
