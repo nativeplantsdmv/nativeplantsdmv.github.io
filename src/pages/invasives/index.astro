@@ -1,0 +1,127 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Non-Native Invasives" description="Resources on invasive non-native plants in the Mid-Atlantic region - identification guides, handbooks, and native look-alikes to plant instead.">
+
+<!-- Hero -->
+<section class="relative bg-gradient-to-b from-red-800 to-red-700 text-white -mt-8 pt-8 pb-12 sm:pb-16 rounded-b-3xl mx-2 sm:mx-auto max-w-6xl">
+  <div class="container-narrow">
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-center mb-6">Non-Native Invasives</h1>
+
+    <div class="bg-red-900/50 border border-red-500 rounded-xl p-6 max-w-2xl mx-auto text-center">
+      <p class="text-xl font-bold text-red-100 mb-2">&#9888;&#65039; AVOID these at all costs</p>
+      <p class="text-lg text-red-200">Cut, pull, or dig them out &mdash; NOW!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Resources -->
+<section class="section bg-white">
+  <div class="container-narrow max-w-3xl mx-auto">
+    <h2 class="section-title">Resources on Invasive Plants</h2>
+
+    <div class="grid gap-4 mt-6">
+      {[
+        { title: 'Invasive Plant Resources (Friends of Sligo Creek)', url: 'https://www.friendsofsligocreek.org/home/who-we-are/natural-history-committee/plants-of-sligo-creek/resources-on-invasive-plants/' },
+        { title: 'Invasives Handbook - Color PDF (Maryland Native Plant Society)', url: 'https://www.mdflora.org/Resources/Publications/invasiveshandbook_color.pdf' },
+        { title: 'Plant Invaders of the Mid-Atlantic Natural Areas (PDF)', url: 'https://www.invasive.org/alien/pubs/midatlantic/midatlantic.pdf' },
+        { title: 'Invasive Plants and Their Native Look-Alikes (USDA NRCS, PDF)', url: 'https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/nrcs144p2_024329.pdf' },
+      ].map(item => (
+        <div class="nursery-entry">
+          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Identification Photos -->
+<section class="section bg-stone-50">
+  <div class="container-narrow max-w-3xl mx-auto">
+    <h2 class="section-title">Identification: Native vs Invasive Look-Alikes</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
+      <figure class="text-center">
+        <img
+          src="/images/invasive-chokeberry.jpg"
+          alt="Black Chokeberry (Aronia melanocarpa) - an invasive lookalike"
+          class="rounded-xl shadow-lg w-full object-cover aspect-square"
+          loading="lazy"
+        />
+        <figcaption class="text-sm text-gray-700 mt-2 font-medium">Black Chokeberry</figcaption>
+        <figcaption class="text-xs text-gray-500">Aronia melanocarpa</figcaption>
+        <figcaption class="text-xs text-gray-400 mt-1">Photo by FritzFlohrReynolds, CC BY-SA 3.0</figcaption>
+      </figure>
+
+      <figure class="text-center">
+        <img
+          src="/images/native-possumhaw-holly.jpg"
+          alt="Possumhaw Holly (Ilex Decidua) - native alternative"
+          class="rounded-xl shadow-lg w-full object-cover aspect-square"
+          loading="lazy"
+        />
+        <figcaption class="text-sm text-gray-700 mt-2 font-medium">Possumhaw Holly</figcaption>
+        <figcaption class="text-xs text-gray-500">Ilex Decidua &mdash; NATIVE</figcaption>
+        <figcaption class="text-xs text-gray-400 mt-1">Photo by En el nido (Nest), CC BY 3.0</figcaption>
+      </figure>
+
+      <figure class="text-center">
+        <img
+          src="/images/native-mother-worth-fern.jpg"
+          alt="Mother Fern (Adiantum pedatum) - native species"
+          class="rounded-xl shadow-lg w-full object-cover aspect-square"
+          loading="lazy"
+        />
+        <figcaption class="text-sm text-gray-700 mt-2 font-medium">Mother Fern</figcaption>
+        <figcaption class="text-xs text-gray-500">Adiantum pedatum &mdash; NATIVE</figcaption>
+        <figcaption class="text-xs text-gray-400 mt-1">Photo by Walter Siegmund, CC BY-SA 3.0</figcaption>
+      </figure>
+    </div>
+
+    <!-- Comparison image -->
+    <figure class="mt-8 text-center">
+      <img
+        src="/images/invasive-comparison.jpg"
+        alt="Comparison of invasive and native plants side by side"
+        class="rounded-xl shadow-lg w-full max-w-xl mx-auto"
+        loading="lazy"
+      />
+      <figcaption class="text-sm text-gray-600 mt-2">Invasive and native comparison</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Tips -->
+<section class="section bg-white">
+  <div class="container-narrow max-w-3xl mx-auto">
+    <h2 class="section-title">What to Do</h2>
+
+    <div class="space-y-4 mt-6">
+      <div class="card border-l-4 border-red-500">
+        <h3 class="font-bold text-red-700 mb-2">1. Identify</h3>
+        <p class="text-gray-700">Use the resources above to learn which plants in your area are invasive. Pay special attention to species that look like natives but aren't.</p>
+      </div>
+
+      <div class="card border-l-4 border-amber-500">
+        <h3 class="font-bold text-amber-700 mb-2">2. Remove</h3>
+        <p class="text-gray-700">Cut, pull, or dig out invasive plants. The sooner, the better. Dispose of plant material properly &mdash; don't compost invasives that spread by seeds.</p>
+      </div>
+
+      <div class="card border-l-4 border-green-500">
+        <h3 class="font-bold text-green-700 mb-2">3. Replace with Natives</h3>
+        <p class="text-gray-700">After removing invasives, plant native species that fill the same ecological niche. See our <a href="/" class="resource-link">home page</a> for nursery recommendations and plant guides.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section bg-green-50">
+  <div class="container-narrow text-center max-w-xl mx-auto">
+    <p class="text-gray-700 mb-4">Have invasive plant resources or corrections to share?</p>
+    <a href="mailto:kallen808@gmail.com" class="btn-primary">Email Ken</a>
+  </div>
+</section>
+
+</PageLayout>

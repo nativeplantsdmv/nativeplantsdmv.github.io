@@ -1,0 +1,162 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Current Events" description="Native plant exchanges, swaps, and events in the DC Metro area. Spring 2026 schedule and upcoming activities.">
+
+<!-- Hero -->
+<section class="relative bg-gradient-to-b from-teal-700 to-teal-600 text-white -mt-8 pt-8 pb-12 sm:pb-16 rounded-b-3xl mx-2 sm:mx-auto max-w-6xl">
+  <div class="container-narrow">
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-center mb-6">Current Events</h1>
+    <p class="text-xl text-teal-100 text-center max-w-2xl mx-auto">
+      Native plant exchanges, swaps, and community events in the DC Metro area.
+    </p>
+  </div>
+</section>
+
+<!-- Spring 2026 Plant Exchanges -->
+<section class="section bg-white">
+  <div class="container-narrow max-w-3xl mx-auto">
+    <h2 class="section-title text-center">Native Plant Exchanges &mdash; Spring 2026</h2>
+
+    <div class="space-y-6">
+      <!-- Event 1 -->
+      <article class="event-card">
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-1">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="bg-green-600 text-white rounded-lg w-16 h-16 flex flex-col items-center justify-center flex-shrink-0 shadow-md">
+                <span class="text-xs font-bold uppercase leading-tight">May</span>
+                <span class="text-xl font-extrabold leading-none">9</span>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-green-800">Native Plant Swap at Montgomery College</h3>
+                <p class="text-gray-600 mt-1"><strong>Silver Spring, MD</strong></p>
+              </div>
+            </div>
+
+            <div class="space-y-2 text-gray-700">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span><strong>1:00 PM to 3:00 PM</strong></span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>At the Food Forest, Montgomery College &middot; 7719 Chicago Ave, SS</span>
+              </div>
+            </div>
+
+            <div class="bg-green-50 border border-green-200 rounded-lg p-4 mt-4">
+              <p class="text-green-800">
+                <strong>New to plant swaps?</strong> You don't need to bring anything (although a plate of cookies would be nice). Come learn, socialize, and take home some natives!
+              </p>
+            </div>
+
+            <p class="text-gray-600 text-sm mt-4">
+              Hosted by <strong>CAC</strong>, <strong>SSTP Aid Community Garden group</strong>, and the <strong>Community Food Forest Collective</strong>.
+            </p>
+          </div>
+
+          <div class="flex-shrink-0 hidden sm:block">
+            <img
+              src="/images/plant-swap-photo.jpg"
+              alt="Plant swap event with people exchanging native plants"
+              class="rounded-xl shadow-lg w-48 h-auto object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </article>
+
+      <!-- Event 2 -->
+      <article class="event-card">
+        <div class="flex items-start gap-6">
+          <div class="bg-green-600 text-white rounded-lg w-16 h-16 flex flex-col items-center justify-center flex-shrink-0 shadow-md">
+            <span class="text-xs font-bold uppercase leading-tight">May</span>
+            <span class="text-xl font-extrabold leading-none">16</span>
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-green-800">Wild Ones National Capital Region &mdash; Plant Swap</h3>
+            <p class="text-gray-600 mt-1"><strong>Wheaton Regional Park</strong></p>
+
+            <div class="space-y-2 text-gray-700 mt-3">
+              <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span><strong>10:30 AM to 1:00 PM</strong></span>
+              </div>
+            </div>
+
+            <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4">
+              <p class="text-amber-800">
+                <strong>&#9888;&#65039; Members Only:</strong> You must be a member of Wild Ones to attend.
+                Go to <a href="https://nationscapitalregion.wildones.org/" target="_blank" rel="noopener" class="underline font-medium">nationscapitalregion.wildones.org</a> and near the bottom left is the button to join.
+              </p>
+            </div>
+
+            <p class="text-gray-600 text-sm mt-3">Members Only Seed/Plant Swap</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Plant exchange photo -->
+    <div class="mt-8 text-center sm:hidden">
+      <img
+        src="/images/plant-swap-photo.jpg"
+        alt="Plant swap event with people exchanging native plants"
+        class="rounded-xl shadow-lg w-full max-w-md mx-auto"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="mt-8 text-center">
+      <img
+        src="/images/plant-exchange-spring.jpg"
+        alt="Spring plant exchange event"
+        class="rounded-xl shadow-lg w-full max-w-md mx-auto"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Recurring Activities -->
+<section class="section bg-stone-50">
+  <div class="container-narrow max-w-3xl mx-auto">
+    <h2 class="section-title text-center">Recurring Activities</h2>
+
+    <div class="grid gap-4">
+      <div class="card">
+        <h3 class="font-bold text-green-800 text-lg">Plant Swaps &mdash; Every Spring and Fall</h3>
+        <p class="text-gray-700 mt-2">
+          The Pollinators group sponsors native plant swaps twice a year. Bring extra cuttings, seedlings, or divisions from your garden and swap with fellow enthusiasts. Details posted here as dates are set.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold text-green-800 text-lg">Local Events Table</h3>
+        <p class="text-gray-700 mt-2">
+          We often have an information table at community events: the Takoma Park Folk Festival, Earth Day celebrations, and National Pollinator Week (around June 20). Stop by to learn about native plants and pick up resources.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold text-green-800 text-lg">Zoom Meetings</h3>
+        <p class="text-gray-700 mt-2">
+          The Pollinators meet every other Thursday morning by Zoom from 9:00 to 10:30 AM. Everyone is welcome to attend. See the <a href="/about/" class="resource-link">About Us</a> page for the zoom link.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section bg-green-50">
+  <div class="container-narrow text-center max-w-xl mx-auto">
+    <p class="text-gray-700 mb-4">Know of other native plant events in the area?</p>
+    <a href="mailto:kallen808@gmail.com" class="btn-primary">Email Ken</a>
+  </div>
+</section>
+
+</PageLayout>
