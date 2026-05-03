@@ -1,0 +1,117 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Nurseries" description="Directory of native plant nurseries near the DC Metro area, plus guides to choosing native plants for your yard.">
+
+<!-- What Plants for Your Yard -->
+<section class="section bg-stone-50">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🌱</span> What Native Plants Are Good for Your Yard?
+    </h2>
+
+    <p class="text-gray-700 mb-4 font-medium">
+      <a href="https://mdflora.org/nurseries.html" target="_blank" rel="noopener" class="resource-link">Maryland Native Plant Society</a> &mdash; Appreciation, Conservation, Education
+    </p>
+
+    <div class="grid gap-4 max-w-3xl mt-6">
+      {[
+        { title: 'Regional Native Plant Vendors (Retail and Wholesale)', url: 'https://mdflora.org/nurseries.html' },
+        { title: 'Native Plants for Shady Slopes', url: 'https://extension.umd.edu/resource/native-plants-shady-slopes' },
+        { title: 'Native Plants for Sunny Slopes', url: 'https://extension.umd.edu/resource/native-plants-sunny-slopes' },
+        { title: 'Rainscapes Plants Guide (Montgomery County, MD)', url: 'https://www.sierraclub.org/sites/www.sierraclub.org/files/sce/maryland-chapter/Campaigns/Natural_Places/Native%20Plants%20Shrubs%20Sunny%20Shade%20Invasives%20Deer%20Resistant%20-%20Copy.pdf' },
+        { title: 'Recommended Native Plants for Maryland', url: 'https://extension.umd.edu/resource/recommended-native-plants-maryland' },
+        { title: 'Native Plant Top 10 Lists (grownative.org)', url: 'https://grownative.org/learn/top-10-lists/' },
+        { title: 'Gardening with Natives in Wet Areas', url: 'https://piedmontmastergardeners.org/article/gardening-with-natives-in-wet-areas/' },
+        { title: 'Top 5 Groundcover Plants (My Green Montgomery)', url: 'https://mygreenmontgomery.org/2025/top-5-groundcover-plants/' },
+        { title: 'Shrubs and the Pollinators Who Love Them (Harvard)', url: 'https://arboretum.harvard.edu/stories/shrubs-and-the-pollinators-who-love-them/' },
+        { title: 'Maryland Natives Spreadsheet (moisture, sun, soil, size, etc.)', url: 'https://docs.google.com/spreadsheets/d/1G4eoUbqfp0M8vwNd-EsgVHB0ISrO0350v-0NwbGdKPQ/edit?usp=sharing' },
+        { title: 'Friends of Native Trees Takoma (FONTT) - Tree Guide', url: 'https://fontt.org/please-download-our-guide/takoma-park-native-tree-selection-guide/' },
+        { title: 'Pollinator Plants: Mid Atlantic Region (PDF)', url: 'https://extension.umd.edu/sites/extension.umd.edu/files/2021-03/FC-MGPub%20Pollinator%20Plants%20Mid-Atlantic%20Region.pdf' },
+      ].map(item => (
+        <div class="nursery-entry">
+          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Nurseries -->
+<section class="section bg-white">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🌿</span> Where to Get Them &mdash; Nurseries That Sell Natives
+    </h2>
+
+    <div class="bg-green-100 border border-green-300 rounded-lg p-4 mb-6 max-w-3xl">
+      <p class="text-green-800 font-medium">The first three listed sell <strong>only natives</strong> and no cultivars. They all come highly recommended.</p>
+    </div>
+
+    <!-- Top 3 endorsed -->
+    <div class="grid gap-6 max-w-3xl mb-8">
+      <div class="card border-l-4 border-green-500">
+        <h3 class="font-bold text-lg text-green-800">Bona Terra</h3>
+        <p class="text-gray-600 text-sm">(202) 507-9648</p>
+        <a href="https://bonaterradc.com" target="_blank" rel="noopener" class="resource-link text-sm">bonaterradc.com</a>
+        <p class="text-gray-700 mt-2">The largest retail inventory of strictly native plants using restorative growing methods in the DC area.</p>
+      </div>
+
+      <div class="card border-l-4 border-green-500">
+        <h3 class="font-bold text-lg text-green-800">Chesapeake Natives</h3>
+        <a href="http://chesapeakenatives.org" target="_blank" rel="noopener" class="resource-link text-sm">chesapeakenatives.org</a>
+        <p class="text-gray-700 mt-2">The gold standard for native plantings in MD. Only local ecotypes. Most sales are online order and pick up, but occasional in-person sales.</p>
+        <p class="text-gray-600 text-sm mt-1">Rosaryville State Park, Mt. Airy Mansion Greenhouse &middot; 9640 Rosaryville Rd., Upper Marlboro, MD</p>
+      </div>
+
+      <div class="card border-l-4 border-green-500">
+        <h3 class="font-bold text-lg text-green-800">Earth Sangha Nursery</h3>
+        <a href="https://www.earthsangha.org/" target="_blank" rel="noopener" class="resource-link text-sm">earthsangha.org</a>
+        &nbsp;|&nbsp;
+        <a href="https://www.earthsangha.org/wpnlist" target="_blank" rel="noopener" class="resource-link text-sm">plant list</a>
+        <p class="text-gray-700 mt-2">Nonprofit public charity based in DC. Our mission is ecological restoration as a form of socially engaged Buddhism.</p>
+        <p class="text-gray-600 text-sm">(703) 333-3022 &middot; 6100 Cloud Dr, Springfield, VA 22150</p>
+      </div>
+    </div>
+
+    <p class="text-gray-500 italic mb-4">The rest are in alphabetical order, no preference intended.</p>
+    <p class="text-gray-600 italic mb-6 text-sm">If there is a specific plant I want, I will put the scientific name plus "for sale" in a search engine to see who has it in stock. &mdash; Ken</p>
+
+    <!-- Full nursery directory -->
+    <div class="grid gap-4 max-w-3xl">
+      {[
+        { name: 'Adkins Arboretum', url: 'https://www.adkinsarboretum.org/nursery/', address: '12610 Eveland Road, Ridgely, MD 21660', phone: '410.634.2847' },
+        { name: 'Direct Native Plants', url: 'http://www.directnativeplants.com/', address: 'Middle River, MD 21220', note: 'Online orders only', contact: 'info@directnativeplants.com or 410-696-1372' },
+        { name: 'Edge of the Woods Nursery', url: 'https://edgeofthewoodsnursery.com/', address: '2415 Route 100, Orefield, PA 18069', phone: '(610) 395-2570', note: 'Specializing in plants native to the Mid-Atlantic and Northeast ecosystems. Landscaping services available year-round.' },
+        { name: 'Herring Run Nursery', url: 'https://bluewaterbaltimore.org/nursery/', address: '2631 Sisson St., Baltimore, MD', note: 'Accepts online orders starting in spring until everything is sold out or ground freezes. Pick or browse in person.' },
+        { name: 'Izel Plants', url: 'https://www.izelplants.com/', phone: '410-989-3721', note: 'Online orders only. Flats of plugs of natives. Most plants are in bulk.' },
+        { name: 'Kollar Nursery', url: 'https://www.kollarnursery.com', address: '5200 West Heaps Road, Pylesville, MD 21132', phone: '(410) 836-0500', note: 'On-site sales only: no delivery. Browse inventory online and shop in person.' },
+        { name: "Lauren's Garden Service", url: 'https://www.laurensgardenservice.com/native-plant-infomation-and-shopping/', address: '13554 Triadelphia Rd, Ellicott City, MD 21042', phone: '410-461-2535', note: 'Website includes list of current stock.' },
+        { name: 'National Wildlife Federation', url: 'https://gardenforwildlife.com', note: 'Click on Shop, mail order only.' },
+        { name: 'Nature by Design', url: 'https://www.nature-by-design.com/', address: '300 Calvert Avenue, Alexandria, VA 22301', phone: '703-683-GROW (4769)', note: 'Open for browsing by appointment only. Appointments NOT necessary for curbside pickup of pre-arranged orders.' },
+        { name: 'Plant Me Love', url: 'https://plantmelove.com/', address: 'Potomac, MD', phone: '202-883-3037', contact: 'Contact@plantmelove.com', note: 'Native landscaping services including design, installation, sustainable maintenance, consultations, and plant sales. By appointment.' },
+        { name: 'The Pollen Nation', url: 'https://www.thepollennation.com', address: 'Bridgeton, NJ', note: 'They sell plugs, in trays of 25 or more.' },
+        { name: 'Prairie Moon Nursery', url: 'https://www.prairiemoon.com/', address: '32115 Prairie Lane, Winona, MN 55987', note: 'Online orders only, including winter pre-orders delivering in spring. Notable for offering native plugs and seeds. Delivery only.' },
+        { name: 'Prairie Nursery', url: 'https://www.prairienursery.com', address: 'P.O. Box 306, Westfield, WI 53964', phone: '1-800-476-9453', note: 'On-line sales only.' },
+        { name: 'Redbud Native Plant Nursery', url: 'https://redbudnative.com', address: '1214 N Middletown Road, Glen Mills, PA 19342', phone: '610-358-4300', note: 'A wide selection of Mid-Atlantic natives including trees, shrubs, vines, grasses, perennials and ferns.' },
+        { name: 'Seven Bends Nursery, VA', url: 'https://www.sevenbends.org', phone: '540-416-2662', contact: 'Plants@sevenbends.org', note: 'Order online and pick up 9-12 on Saturdays in Winchester, VA. Address for pickup provided at checkout.' },
+        { name: 'Swamp Rose Coop', url: 'https://swamprosecoop.com', address: '940 Thayer Ave, #7512, Silver Spring, MD 20910', note: 'Online native plant sales and landscaping services - Metro DC area.' },
+        { name: 'Tree Talk Natives', url: 'https://www.treetalknatives.com/', address: '163 Vaughan Hill Rd, Rochester, MA 02770', phone: '508-904-0423', note: 'Locally grown native trees and flowers for New England.' },
+        { name: 'Wildflower Native Plant Nursery', url: 'https://www.wildflowernativeplants.com', address: '8301 Thoreau Drive, Bethesda, MD 20817', phone: '703-589-6654', contact: 'mariana@wildflowernativeplants.com' },
+        { name: 'Maryland DNR Nursery (trees only)', url: 'https://nursery.dnr.maryland.gov/category-s/1829.htm', note: 'On-line sale of native Conifers, Deciduous trees and Deciduous shrubs. Buy in groups of 25 (minimum order).', contact: 'seedlingsales.dnr@maryland.gov' },
+      ].map(nursery => (
+        <div class="nursery-entry">
+          <h3 class="font-bold text-green-800">{nursery.name}</h3>
+          <a href={nursery.url} target="_blank" rel="noopener" class="resource-link text-sm">{nursery.url}</a>
+          {nursery.phone && <p class="text-gray-600 text-sm mt-1">{nursery.phone}</p>}
+          {nursery.contact && <p class="text-gray-600 text-sm">{nursery.contact}</p>}
+          {nursery.address && <p class="text-gray-600 text-sm">{nursery.address}</p>}
+          {nursery.note && <p class="text-gray-700 mt-2 text-sm">{nursery.note}</p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+</PageLayout>

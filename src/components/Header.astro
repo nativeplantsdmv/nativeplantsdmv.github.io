@@ -8,8 +8,12 @@ const { title, currentPage } = Astro.props;
 
 const navItems = [
   { label: 'Home', path: '/', active: currentPage === 'Home' },
+  { label: 'Nurseries', path: '/nurseries/', active: currentPage === 'Nurseries' },
+  { label: 'Landscapers', path: '/landscapers/', active: currentPage === 'Landscapers' },
+  { label: 'Gardens', path: '/gardens-to-visit/', active: currentPage === 'Gardens to Visit' },
+  { label: 'Resources', path: '/resources/', active: currentPage === 'Resources' },
   { label: 'About Us', path: '/about/', active: currentPage === 'About Us' },
-  { label: 'Current Events', path: '/events/', active: currentPage === 'Current Events' },
+  { label: 'Events', path: '/events/', active: currentPage === 'Current Events' },
   { label: 'Invasives', path: '/invasives/', active: currentPage === 'Non-Native Invasives' },
 ];
 ---

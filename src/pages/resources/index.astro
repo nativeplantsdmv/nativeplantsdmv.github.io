@@ -1,0 +1,138 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Resources" description="Reference guides, plant identification apps, organizations, and educational resources for native gardening in the DC Metro area.">
+
+<!-- Why Native Plants -->
+<section class="section bg-white">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🦋</span> Why Grow Native Plants?
+    </h2>
+    <p class="text-gray-600 mb-6">Many groups have answered this question far better than I could:</p>
+
+    <div class="grid gap-4 max-w-3xl">
+      <a href="https://www.audubon.org/content/why-native-plants-matter" target="_blank" rel="noopener" class="resource-link">
+        Audubon: Why Native Plants Matter
+      </a>
+      <a href="https://tpss.coop/pro-pollinator-butterflies-and-their-host-plants" target="_blank" rel="noopener" class="resource-link">
+        Pro-Pollinator: Butterflies and Their Host Plants <span class="text-sm text-gray-500">(written by two CAC members)</span>
+      </a>
+      <a href="https://www.sierraclub.org/maryland/blog/2019/04/improve-your-garden-native-plants" target="_blank" rel="noopener" class="resource-link">
+        Sierra Club Maryland: Improve Your Garden with Native Plants
+      </a>
+      <a href="https://www.yesmagazine.org/environment/2020/02/07/yard-sustainability-native-plants" target="_blank" rel="noopener" class="resource-link">
+        YES! Magazine: Yard Sustainability through Native Plants
+      </a>
+      <a href="https://louisville.wildones.org/2025/08/13/soft-landings-how-to-enhance-butterfly-and-moth-survival-under-trees/" target="_blank" rel="noopener" class="resource-link">
+        Soft Landings: How to Enhance Butterfly and Moth Survival Under Trees
+      </a>
+      <a href="https://www.humanesociety.org/news/wildlife-garden-myths" target="_blank" rel="noopener" class="resource-link">
+        Humane Society: Wildlife Garden Myths
+      </a>
+      <a href="https://www.washingtonpost.com/opinions/interactive/2022/climate-change-backyard-gardening-permaculture-fall/" target="_blank" rel="noopener" class="resource-link">
+        Washington Post: Climate Change, Backyard Gardening & Permaculture
+      </a>
+    </div>
+
+    <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200 max-w-3xl">
+      <p class="text-gray-700 mb-2"><strong>Recommended Video:</strong> Doug Tallamy explains the importance of natives.</p>
+      <a href="https://www.youtube.com/watch?v=w39g_f7BMUk" target="_blank" rel="noopener" class="resource-link">
+        Watch on YouTube
+      </a>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <img
+        src="/images/coreopsis-bees.jpg"
+        alt="Coreopsis flowers hosting bees"
+        class="rounded-xl shadow-lg w-full max-w-xl"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- Plant ID Apps -->
+<section class="section bg-stone-50">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">📱</span> Plant Identification Apps for Your Phone
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
+      {[
+        { name: 'Picture This', desc: 'Take a picture of any plant and get the name, plus lots of other information. Scroll down to map to see if it is native to eastern US.', price: '$30/year' },
+        { name: 'Seek', desc: 'Get plant (or bug) in focus to light up 7 dots. When all are lit you have identified your subject. Click photo to learn more about that plant. The "kid" version of iNaturalist.', price: 'Free' },
+        { name: 'iNaturalist', desc: 'Several steps for ID, but used worldwide for scientific study.', price: 'Free' },
+        { name: 'Google Lens', desc: 'Part of the Google suite: take a picture and identify anything &mdash; plants, animals, furniture, etc.', price: 'Free' },
+      ].map(app => (
+        <div class="card">
+          <h3 class="font-bold text-green-800">{app.name}</h3>
+          <p class="text-gray-700 text-sm mt-1">{app.desc}</p>
+          <span class={`inline-block mt-2 text-xs font-medium px-2 py-1 rounded-full ${app.price === 'Free' ? 'bg-green-100 text-green-700' : 'bg-stone-100 text-stone-600'}`}>
+            {app.price}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Organizations -->
+<section class="section bg-white">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🤝</span> Organizations That Promote Native Plants
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+      {[
+        { name: 'Wild Ones', url: 'https://wildones.org', sub: 'Local chapter' },
+        { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
+        { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
+      ].map(org => (
+        <div class="card text-center">
+          <h3 class="font-bold text-green-800">{org.name}</h3>
+          <a href={org.url} target="_blank" rel="noopener" class="resource-link text-sm block mt-1">{org.url}</a>
+          {org.sub && <p class="text-gray-600 text-xs mt-2">{org.sub}: <a href="https://nationscapitalregion.wildones.org/" target="_blank" rel="noopener" class="resource-link">nationscapitalregion.wildones.org</a></p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Leave the Leaves -->
+<section class="section bg-stone-50">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🍂</span> Why You Should Leave the Leaves
+    </h2>
+
+    <p class="text-gray-600 mb-6">Leaving leaf litter over winter protects beneficial insects, adds organic matter to your soil, and requires less work in spring. Here are some references:</p>
+
+    <div class="grid gap-4 max-w-3xl">
+      {[
+        { title: 'Montgomery County MD: Tips on Leaving Leaves', url: 'https://www.montgomerycountymd.gov/DEP/property-care/lawns/tips/leaves.html' },
+        { title: 'How To Preserve Beneficial Hibernating Insects in Your Yard (UMD)', url: 'https://cmns.umd.edu/news-events/news/max-ferlauto-karin-burghardt-how-preserve-beneficial-hibernating-insects-your-yard' },
+        { title: 'Doug Tallamy Explains Why (and How to) Leave the Leaves (Gardenista)', url: 'https://www.gardenista.com/posts/ask-expert-doug-tallamy-leave-leaves/' },
+        { title: 'Leave the Leaves: Winter Habitat Protection (Xerces Society)', url: 'https://xerces.org/leave-the-leaves' },
+        { title: 'Leave the Leaves & Plant Debris - Support Insects (YouTube)', url: 'https://www.youtube.com/watch?v=vCjzcN_7JAU' },
+        { title: 'Eco-Conscious Spring and Fall Garden Cleanup (Anacostia River Watershed Society)', url: 'https://www.anacostiaws.org/blog/leave-the-leaves.html' },
+        { title: 'Xerces Blog: Leave the Leaves', url: 'https://xerces.org/blog/leave-the-leaves' },
+        { title: 'When Should You Rake Up Your Leaves in Spring? (FONTT)', url: 'https://fontt.org/hold-off-on-your-yards-spring-clean-up/' },
+        { title: "Don't Spring Into Garden Cleanup Too Soon (Xerces)", url: 'https://xerces.org/blog/dont-spring-into-garden-cleanup-too-soon' },
+        { title: '5 Tips On Leaving The Fall Leaves (YouTube)', url: 'https://www.youtube.com/watch?v=HvyPGCmx6ts' },
+        { title: 'Pro-Tips for Leaving the Leaves (National Wildlife Federation)', url: 'https://blog.nwf.org/2023/10/pro-tips-for-leaving-the-leaves/' },
+        { title: 'Washington Post: Why You Should Be Lazy and Leave Your Leaves', url: 'https://www.washingtonpost.com/climate-solutions/2023/10/14/raking-leaves-yard-fall-environment/' },
+      ].map(item => (
+        <div class="nursery-entry">
+          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+</PageLayout>

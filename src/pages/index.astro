@@ -4,7 +4,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 const lastUpdated = 'March 2026';
 ---
 
-<PageLayout title="Home" description="Native plant resources for the DC Metro area (DMV). Nurseries, events, guides, and organizations promoting native plants and pollinators.">
+<PageLayout title="Home" description="Native plant resources for the DC Metro area (DMV). Nurseries, plant swaps, landscaping companies, and everything you need to grow a garden that supports wildlife.">
 
 <!-- Hero Section -->
 <section class="relative bg-gradient-to-b from-green-700 to-green-600 text-white -mt-24 pt-24 pb-16 sm:py-20 rounded-b-3xl sm:mx-auto max-w-6xl">
@@ -29,364 +29,143 @@ const lastUpdated = 'March 2026';
       />
     </div>
   </div>
-</section>
 
-<!-- Signs Section -->
-<section class="section bg-white">
-  <div class="container-narrow text-center">
-    <h2 class="section-title">Native Plant Signs Available</h2>
-    <p class="text-lg text-gray-600 mb-8">$5 donation: pick up in Takoma Park, or delivery nearby</p>
-    <div class="flex justify-center gap-6 flex-wrap">
-      <img
-        src="/images/native-plants-sign-front.jpg"
-        alt="Native Plants sign front view"
-        class="rounded-lg shadow-md max-w-xs w-full"
-      />
-      <img
-        src="/images/native-plants-sign-back.jpg"
-        alt="Native Plants sign back view"
-        class="rounded-lg shadow-md max-w-xs w-full"
-      />
+  <!-- Signs section merged into hero -->
+  <div class="container-narrow mt-10 pt-8 border-t border-green-500/30">
+    <div class="flex flex-col md:flex-row items-center gap-6">
+      <div class="flex-shrink-0 flex gap-4">
+        <img
+          src="/images/native-plants-sign-front.jpg"
+          alt="Native Plants sign front view"
+          class="rounded-lg shadow-md w-32 sm:w-40 object-cover"
+          loading="eager"
+        />
+        <img
+          src="/images/native-plants-sign-back.jpg"
+          alt="Native Plants sign back view"
+          class="rounded-lg shadow-md w-32 sm:w-40 object-cover"
+          loading="eager"
+        />
+      </div>
+      <div class="flex-1 text-center md:text-left">
+        <h2 class="text-xl font-bold mb-2">Native Plant Signs Available</h2>
+        <p class="text-green-100 mb-2">$5 donation: pick up in Takoma Park, or delivery nearby</p>
+        <p class="text-sm text-green-200">
+          Contact for more information: <a href="mailto:kallen808@gmail.com" class="underline hover:text-white transition-colors">kallen808@gmail.com</a>
+        </p>
+      </div>
     </div>
-    <p class="mt-6 text-gray-600">
-      Contact for more information: <a href="mailto:kallen808@gmail.com" class="resource-link">kallen808@gmail.com</a>
-    </p>
-  </div>
-</section>
-
-<!-- Table of Contents -->
-<section class="section bg-green-50">
-  <div class="container-narrow">
-    <h2 class="section-title text-center">Topics on This Page</h2>
-    <nav class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto" aria-label="Page topics">
-      { [
-        { id: 'why-natives', label: 'Why Grow Native Plants?' },
-        { id: 'what-plants', label: 'What Plants Are Good for Your Yard?' },
-        { id: 'nurseries', label: 'Where to Get Them - Nurseries' },
-        { id: 'id-apps', label: 'Plant ID Apps' },
-        { id: 'gardens', label: 'All-Native Gardens to Visit' },
-        { id: 'landscapers', label: 'Landscaping Companies' },
-        { id: 'organizations', label: 'Organizations' },
-        { id: 'leaves', label: 'Leave the Leaves' },
-      ].map(item => (
-        <a href={`#${item.id}`} class="bg-white rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow text-green-700 font-medium text-center">
-          {item.label}
-        </a>
-      ))}
-    </nav>
   </div>
 </section>
 
 <!-- Why Native Plants -->
-<section id="why-natives" class="section bg-white">
+<section class="section bg-white">
   <div class="container-narrow">
     <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🦋</span> Why Should You Grow Native Plants?
+      <span class="text-3xl">🦋</span> Why Grow Native Plants?
     </h2>
-    <p class="text-gray-600 mb-6">Many groups have answered this question far better than I could:</p>
-
-    <div class="grid gap-4 max-w-3xl">
-      <a href="https://www.audubon.org/content/why-native-plants-matter" target="_blank" rel="noopener" class="resource-link">
-        Audubon: Why Native Plants Matter
-      </a>
-      <a href="https://tpss.coop/pro-pollinator-butterflies-and-their-host-plants" target="_blank" rel="noopener" class="resource-link">
-        Pro-Pollinator: Butterflies and Their Host Plants <span class="text-sm text-gray-500">(written by two CAC members)</span>
-      </a>
-      <a href="https://www.sierraclub.org/maryland/blog/2019/04/improve-your-garden-native-plants" target="_blank" rel="noopener" class="resource-link">
-        Sierra Club Maryland: Improve Your Garden with Native Plants
-      </a>
-      <a href="https://www.yesmagazine.org/environment/2020/02/07/yard-sustainability-native-plants" target="_blank" rel="noopener" class="resource-link">
-        YES! Magazine: Yard Sustainability through Native Plants
-      </a>
-      <a href="https://louisville.wildones.org/2025/08/13/soft-landings-how-to-enhance-butterfly-and-moth-survival-under-trees/" target="_blank" rel="noopener" class="resource-link">
-        Soft Landings: How to Enhance Butterfly and Moth Survival Under Trees
-      </a>
-      <a href="https://www.humanesociety.org/news/wildlife-garden-myths" target="_blank" rel="noopener" class="resource-link">
-        Humane Society: Wildlife Garden Myths
-      </a>
-      <a href="https://www.washingtonpost.com/opinions/interactive/2022/climate-change-backyard-gardening-permaculture-fall/" target="_blank" rel="noopener" class="resource-link">
-        Washington Post: Climate Change, Backyard Gardening & Permaculture
-      </a>
+    <div class="prose prose-lg text-gray-700 max-w-3xl space-y-4">
+      <p>
+        Native plants are the foundation of local ecosystems. They evolved alongside regional insects, birds, and pollinators over thousands of years — creating relationships that non-native species simply can't replicate. A single mature native tree can support hundreds of caterpillar species, which in turn feed nesting songbirds.
+      </p>
+      <p>
+        Planting natives means less watering, fewer pesticides, and more wildlife activity in your yard. It also helps combat habitat loss across the broader region — even small yards contribute to ecological corridors when planted thoughtfully.
+      </p>
     </div>
-
-    <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200 max-w-3xl">
-      <p class="text-gray-700 mb-2"><strong>Recommended Video:</strong> Doug Tallamy explains the importance of natives.</p>
-      <a href="https://www.youtube.com/watch?v=w39g_f7BMUk" target="_blank" rel="noopener" class="resource-link">
-        Watch on YouTube
-      </a>
-    </div>
-
-    <div class="mt-8 flex justify-center">
-      <img
-        src="/images/coreopsis-bees.jpg"
-        alt="Coreopsis flowers hosting bees"
-        class="rounded-xl shadow-lg w-full max-w-xl"
-        loading="lazy"
-      />
+    <div class="mt-6">
+      <a href="/resources/#why-natives" class="btn-primary inline-block">Read More Resources →</a>
     </div>
   </div>
 </section>
 
-<!-- What Plants for Your Yard -->
-<section id="what-plants" class="section bg-stone-50">
+<!-- Endorsed Nurseries -->
+<section class="section bg-stone-50">
   <div class="container-narrow">
     <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🌱</span> What Native Plants Are Good for Your Yard?
+      <span class="text-3xl">🌿</span> Our Top Native Nurseries
     </h2>
 
-    <p class="text-gray-700 mb-4 font-medium">
-      <a href="https://mdflora.org/nurseries.html" target="_blank" rel="noopener" class="resource-link">Maryland Native Plant Society</a> &mdash; Appreciation, Conservation, Education
-    </p>
+    <p class="text-gray-600 mb-6 max-w-3xl">These three sell only true natives — no cultivars. All come highly recommended.</p>
 
-    <div class="grid gap-4 max-w-3xl mt-6">
-      {[
-        { title: 'Regional Native Plant Vendors (Retail and Wholesale)', url: 'https://mdflora.org/nurseries.html' },
-        { title: 'Native Plants for Shady Slopes', url: 'https://extension.umd.edu/resource/native-plants-shady-slopes' },
-        { title: 'Native Plants for Sunny Slopes', url: 'https://extension.umd.edu/resource/native-plants-sunny-slopes' },
-        { title: 'Rainscapes Plants Guide (Montgomery County, MD)', url: 'https://www.sierraclub.org/sites/www.sierraclub.org/files/sce/maryland-chapter/Campaigns/Natural_Places/Native%20Plants%20Shrubs%20Sunny%20Shade%20Invasives%20Deer%20Resistant%20-%20Copy.pdf' },
-        { title: 'Recommended Native Plants for Maryland', url: 'https://extension.umd.edu/resource/recommended-native-plants-maryland' },
-        { title: 'Native Plant Top 10 Lists (grownative.org)', url: 'https://grownative.org/learn/top-10-lists/' },
-        { title: 'Gardening with Natives in Wet Areas', url: 'https://piedmontmastergardeners.org/article/gardening-with-natives-in-wet-areas/' },
-        { title: 'Top 5 Groundcover Plants (My Green Montgomery)', url: 'https://mygreenmontgomery.org/2025/top-5-groundcover-plants/' },
-        { title: 'Shrubs and the Pollinators Who Love Them (Harvard)', url: 'https://arboretum.harvard.edu/stories/shrubs-and-the-pollinators-who-love-them/' },
-        { title: 'Maryland Natives Spreadsheet (moisture, sun, soil, size, etc.)', url: 'https://docs.google.com/spreadsheets/d/1G4eoUbqfp0M8vwNd-EsgVHB0ISrO0350v-0NwbGdKPQ/edit?usp=sharing' },
-        { title: 'Friends of Native Trees Takoma (FONTT) - Tree Guide', url: 'https://fontt.org/please-download-our-guide/takoma-park-native-tree-selection-guide/' },
-        { title: 'Pollinator Plants: Mid Atlantic Region (PDF)', url: 'https://extension.umd.edu/sites/extension.umd.edu/files/2021-03/FC-MGPub%20Pollinator%20Plants%20Mid-Atlantic%20Region.pdf' },
-      ].map(item => (
-        <div class="nursery-entry">
-          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- Nurseries -->
-<section id="nurseries" class="section bg-white">
-  <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🌿</span> Where to Get Them &mdash; Nurseries That Sell Natives
-    </h2>
-
-    <div class="bg-green-100 border border-green-300 rounded-lg p-4 mb-6 max-w-3xl">
-      <p class="text-green-800 font-medium">The first three listed sell <strong>only natives</strong> and no cultivars. They all come highly recommended.</p>
-    </div>
-
-    <!-- Top 3 recommended -->
+    <!-- Top 3 endorsed -->
     <div class="grid gap-6 max-w-3xl mb-8">
-      <div class="card border-l-4 border-green-500">
+      <div class="card bg-white border-l-4 border-green-500 shadow-sm">
         <h3 class="font-bold text-lg text-green-800">Bona Terra</h3>
         <p class="text-gray-600 text-sm">(202) 507-9648</p>
         <a href="https://bonaterradc.com" target="_blank" rel="noopener" class="resource-link text-sm">bonaterradc.com</a>
         <p class="text-gray-700 mt-2">The largest retail inventory of strictly native plants using restorative growing methods in the DC area.</p>
       </div>
 
-      <div class="card border-l-4 border-green-500">
+      <div class="card bg-white border-l-4 border-green-500 shadow-sm">
         <h3 class="font-bold text-lg text-green-800">Chesapeake Natives</h3>
         <a href="http://chesapeakenatives.org" target="_blank" rel="noopener" class="resource-link text-sm">chesapeakenatives.org</a>
-        <p class="text-gray-700 mt-2">The gold standard for native plantings in MD. Only local ecotypes. Most sales are online order and pick up, but occasional in-person sales.</p>
-        <p class="text-gray-600 text-sm mt-1">Rosaryville State Park, Mt. Airy Mansion Greenhouse &middot; 9640 Rosaryville Rd., Upper Marlboro, MD</p>
+        <p class="text-gray-700 mt-2">The gold standard for native plantings in MD. Only local ecotypes.</p>
       </div>
 
-      <div class="card border-l-4 border-green-500">
+      <div class="card bg-white border-l-4 border-green-500 shadow-sm">
         <h3 class="font-bold text-lg text-green-800">Earth Sangha Nursery</h3>
         <a href="https://www.earthsangha.org/" target="_blank" rel="noopener" class="resource-link text-sm">earthsangha.org</a>
-        &nbsp;|&nbsp;
-        <a href="https://www.earthsangha.org/wpnlist" target="_blank" rel="noopener" class="resource-link text-sm">plant list</a>
-        <p class="text-gray-700 mt-2">Nonprofit public charity based in DC. Our mission is ecological restoration as a form of socially engaged Buddhism.</p>
-        <p class="text-gray-600 text-sm">(703) 333-3022 &middot; 6100 Cloud Dr, Springfield, VA 22150</p>
+        <p class="text-gray-700 mt-2">Nonprofit public charity based in DC. Ecological restoration as a form of socially engaged Buddhism.</p>
       </div>
     </div>
 
-    <p class="text-gray-500 italic mb-4">The rest are in alphabetical order, no preference intended.</p>
-    <p class="text-gray-600 italic mb-6 text-sm">If there is a specific plant I want, I will put the scientific name plus "for sale" in a search engine to see who has it in stock. &mdash; Ken</p>
-
-    <!-- Alphabetical nurseries -->
-    <div class="grid gap-4 max-w-3xl">
-      {[
-        { name: 'Adkins Arboretum', url: 'https://www.adkinsarboretum.org/nursery/', address: '12610 Eveland Road, Ridgely, MD 21660', phone: '410.634.2847' },
-        { name: 'Direct Native Plants', url: 'http://www.directnativeplants.com/', address: 'Middle River, MD 21220', note: 'Online orders only', contact: 'info@directnativeplants.com or 410-696-1372' },
-        { name: 'Edge of the Woods Nursery', url: 'https://edgeofthewoodsnursery.com/', address: '2415 Route 100, Orefield, PA 18069', phone: '(610) 395-2570', note: 'Specializing in plants native to the Mid-Atlantic and Northeast ecosystems. Landscaping services available year-round.' },
-        { name: 'Herring Run Nursery', url: 'https://bluewaterbaltimore.org/nursery/', address: '2631 Sisson St., Baltimore, MD', note: 'Accepts online orders starting in spring until everything is sold out or ground freezes. Pick or browse in person.' },
-        { name: 'Izel Plants', url: 'https://www.izelplants.com/', phone: '410-989-3721', note: 'Online orders only. Flats of plugs of natives. Most plants are in bulk.' },
-        { name: 'Kollar Nursery', url: 'https://www.kollarnursery.com', address: '5200 West Heaps Road, Pylesville, MD 21132', phone: '(410) 836-0500', note: 'On-site sales only: no delivery. Browse inventory online and shop in person.' },
-        { name: "Lauren's Garden Service", url: 'https://www.laurensgardenservice.com/native-plant-infomation-and-shopping/', address: '13554 Triadelphia Rd, Ellicott City, MD 21042', phone: '410-461-2535', note: 'Website includes list of current stock.' },
-        { name: 'National Wildlife Federation', url: 'https://gardenforwildlife.com', note: 'Click on Shop, mail order only.' },
-        { name: 'Nature by Design', url: 'https://www.nature-by-design.com/', address: '300 Calvert Avenue, Alexandria, VA 22301', phone: '703-683-GROW (4769)', note: 'Open for browsing by appointment only. Appointments NOT necessary for curbside pickup of pre-arranged orders.' },
-        { name: 'Plant Me Love', url: 'https://plantmelove.com/', address: 'Potomac, MD', phone: '202-883-3037', contact: 'Contact@plantmelove.com', note: 'Native landscaping services including design, installation, sustainable maintenance, consultations, and plant sales. By appointment.' },
-        { name: 'The Pollen Nation', url: 'https://www.thepollennation.com', address: 'Bridgeton, NJ', note: 'They sell plugs, in trays of 25 or more.' },
-        { name: 'Prairie Moon Nursery', url: 'https://www.prairiemoon.com/', address: '32115 Prairie Lane, Winona, MN 55987', note: 'Online orders only, including winter pre-orders delivering in spring. Notable for offering native plugs and seeds. Delivery only.' },
-        { name: 'Prairie Nursery', url: 'https://www.prairienursery.com', address: 'P.O. Box 306, Westfield, WI 53964', phone: '1-800-476-9453', note: 'On-line sales only.' },
-        { name: 'Redbud Native Plant Nursery', url: 'https://redbudnative.com', address: '1214 N Middletown Road, Glen Mills, PA 19342', phone: '610-358-4300', note: 'A wide selection of Mid-Atlantic natives including trees, shrubs, vines, grasses, perennials and ferns.' },
-        { name: 'Seven Bends Nursery, VA', url: 'https://www.sevenbends.org', phone: '540-416-2662', contact: 'Plants@sevenbends.org', note: 'Order online and pick up 9-12 on Saturdays in Winchester, VA. Address for pickup provided at checkout.' },
-        { name: 'Swamp Rose Coop', url: 'https://swamprosecoop.com', address: '940 Thayer Ave, #7512, Silver Spring, MD 20910', note: 'Online native plant sales and landscaping services - Metro DC area.' },
-        { name: 'Tree Talk Natives', url: 'https://www.treetalknatives.com/', address: '163 Vaughan Hill Rd, Rochester, MA 02770', phone: '508-904-0423', note: 'Locally grown native trees and flowers for New England.' },
-        { name: 'Wildflower Native Plant Nursery', url: 'https://www.wildflowernativeplants.com', address: '8301 Thoreau Drive, Bethesda, MD 20817', phone: '703-589-6654', contact: 'mariana@wildflowernativeplants.com' },
-        { name: 'Maryland DNR Nursery (trees only)', url: 'https://nursery.dnr.maryland.gov/category-s/1829.htm', note: 'On-line sale of native Conifers, Deciduous trees and Deciduous shrubs. Buy in groups of 25 (minimum order).', contact: 'seedlingsales.dnr@maryland.gov' },
-      ].map(nursery => (
-        <div class="nursery-entry">
-          <h3 class="font-bold text-green-800">{nursery.name}</h3>
-          <a href={nursery.url} target="_blank" rel="noopener" class="resource-link text-sm">{nursery.url}</a>
-          {nursery.phone && <p class="text-gray-600 text-sm mt-1">{nursery.phone}</p>}
-          {nursery.contact && <p class="text-gray-600 text-sm">{nursery.contact}</p>}
-          {nursery.address && <p class="text-gray-600 text-sm">{nursery.address}</p>}
-          {nursery.note && <p class="text-gray-700 mt-2 text-sm">{nursery.note}</p>}
-        </div>
-      ))}
+    <div class="text-center">
+      <a href="/nurseries/" class="btn-primary inline-block">See Full Nursery Directory →</a>
     </div>
   </div>
 </section>
 
-<!-- Plant ID Apps -->
-<section id="id-apps" class="section bg-stone-50">
-  <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">📱</span> Plant Identification Apps for Your Phone
+<!-- Zoom Meetings -->
+<section class="section bg-white">
+  <div class="container-narrow max-w-3xl mx-auto">
+    <h2 class="section-title flex items-center gap-3 text-2xl">
+      <span class="text-3xl">☕</span> Join Our Zoom Meetings
     </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
-      {[
-        { name: 'Picture This', desc: 'Take a picture of any plant and get the name, plus lots of other information. Scroll down to map to see if it is native to eastern US.', price: '$30/year' },
-        { name: 'Seek', desc: 'Get plant (or bug) in focus to light up 7 dots. When all are lit you have identified your subject. Click photo to learn more about that plant. The "kid" version of iNaturalist.', price: 'Free' },
-        { name: 'iNaturalist', desc: 'Several steps for ID, but used worldwide for scientific study.', price: 'Free' },
-        { name: 'Google Lens', desc: 'Part of the Google suite: take a picture and identify anything &mdash; plants, animals, furniture, etc.', price: 'Free' },
-      ].map(app => (
-        <div class="card">
-          <h3 class="font-bold text-green-800">{app.name}</h3>
-          <p class="text-gray-700 text-sm mt-1">{app.desc}</p>
-          <span class={`inline-block mt-2 text-xs font-medium px-2 py-1 rounded-full ${app.price === 'Free' ? 'bg-green-100 text-green-700' : 'bg-stone-100 text-stone-600'}`}>
-            {app.price}
-          </span>
-        </div>
-      ))}
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+        <h3 class="font-bold text-green-800 mb-2">Climate Action Coffee</h3>
+        <p class="text-gray-700 text-sm mb-3">Weekly Zoom: Wednesday mornings 8:00 to 9:30 AM</p>
+        <a href="https://us02web.zoom.us/j/88246766222?pwd=TzRPNkt0a09sbzRoMFpTdTZITU9ZZz09" target="_blank" rel="noopener" class="btn-primary text-sm">
+          Join the Zoom
+        </a>
+      </div>
+
+      <div class="bg-green-50 border border-green-200 rounded-xl p-6">
+        <h3 class="font-bold text-green-800 mb-2">The Pollinators</h3>
+        <p class="text-gray-700 text-sm mb-3">Every other Thursday morning by Zoom from 9:00 to 10:30 AM</p>
+        <a href="https://us02web.zoom.us/j/88246766222?pwd=TzRPNkt0a09sbzRoMFpTdTZITU9ZZz09" target="_blank" rel="noopener" class="btn-primary text-sm">
+          Join the Zoom
+        </a>
+      </div>
     </div>
+
+    <p class="text-gray-600 mt-4 text-sm">Learn more about our group on the <a href="/about/" class="resource-link">About Us</a> page.</p>
   </div>
 </section>
 
-<!-- All-Native Gardens -->
-<section id="gardens" class="section bg-white">
+<!-- Quick Nav to Sub-pages -->
+<section class="section bg-green-50">
   <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🏡</span> All-Native Gardens to Visit
-    </h2>
-
-    <div class="grid gap-4 max-w-3xl">
+    <h2 class="section-title text-center">Explore More</h2>
+    <nav class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto" aria-label="Site sections">
       {[
-        { name: 'Triangle Park', desc: 'Near the Takoma Metro, where Blair Road and 4th St. meet.' },
-        { name: 'Glenside Garden', desc: 'At Glenside Dr. and Jackson Ave., follow the path that takes you over the bridge. In Takoma Park, MD. Maintained by the neighbors who live right there.' },
-        { name: 'University of MD, College Park', url: 'https://arboretum.umd.edu/maryland-natives-shade-garden', desc: 'Small garden between Francis Scott Key Hall and Woods Hall on McKeldin Mall. A dozen natives have labels.' },
-        { name: 'Delaware Botanic Garden', url: 'http://www.delawaregardens.org', address: '30220 Piney Neck Road, Dagsboro, DE 19939', phone: '302-321-9061' },
-        { name: 'Patterson Park Audubon Center', url: 'https://patterson.audubon.org', address: '2901 E. Baltimore St., Box 2, Baltimore, MD 21224', phone: '410-558-BIRD (2473)' },
-        { name: 'Mt. Cuba Center (My favorite!)', url: 'https://mtcubacenter.org/', address: '3120 Barley Mill Rd, Hockessin, DE 19707', phone: '302.239.4244' },
-        { name: 'Stoneleigh: A Natural Garden', url: 'https://stoneleighgarden.org/garden/home/', address: '1829 East County Line Road, Villanova, PA 19085', phone: '610-353-5587' },
-        { name: 'Adkins Arboretum', url: 'https://www.adkinsarboretum.org', address: '12610 Eveland Road, Ridgely, MD 21660' },
-        { name: 'Blandy Experimental Farm (State Arboretum of Virginia)', url: 'https://blandy.virginia.edu', address: '400 Blandy Farm Lane, Boyce, VA 22620', phone: '540-837-1758', contact: 'blandy@virginia.edu' },
-      ].map(garden => (
-        <div class="card">
-          <h3 class="font-bold text-green-800">{garden.name}</h3>
-          {garden.url && <a href={garden.url} target="_blank" rel="noopener" class="resource-link text-sm">{garden.url}</a>}
-          <p class="text-gray-700 mt-2 text-sm">{garden.desc}</p>
-          {garden.address && <p class="text-gray-600 text-sm mt-1">{garden.address}</p>}
-          {garden.phone && <p class="text-gray-600 text-sm">{garden.phone}</p>}
-          {garden.contact && <p class="text-gray-600 text-sm">{garden.contact}</p>}
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- Landscaping Companies -->
-<section id="landscapers" class="section bg-stone-50">
-  <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🚜</span> Landscaping Companies That Use Mostly Natives
-    </h2>
-
-    <p class="text-gray-600 italic mb-6">I have not vetted any of these. Let me know if you have a particularly good (or bad) experience with any of them.</p>
-
-    <div class="grid gap-4 max-w-3xl">
-      {[
-        { name: 'Bloom Wild', url: 'http://www.bloom-wild.com/', contact: 'hello@bloom-wild.com', desc: 'Native plant consultations, coaching, garden design and installations/maintenance to folks in PG County, Mont County, and surrounding areas. Sliding scale fees for low-income/low-wealth clients.' },
-        { name: 'Bona Terra', url: 'https://bonaterradc.com/', contact: '(202) 507-9648 / bonaterra@bonaterradc.com', desc: 'Bay-friendly landscaping + native plants.' },
-        { name: 'Father Nature Restorative Landscaping', url: 'https://www.father-nature.com/', desc: 'Design, consultations, installation, and maintenance for sustainably focused projects. Restore habitats (meadows, shrublands, woodlands), install gardens, veggie gardens, rain gardens, and natural play areas.' },
-        { name: 'Gardenology', url: 'http://www.gardenologyus.com', phone: '(240) 621-0082', desc: 'Schedule a 15 minute Exploratory call at my.gardenologyus.com/optin' },
-        { name: 'HANDSDIRTYDC', url: '', contact: 'John@handsdirtydc.com / 202-747-4702 (text)', desc: 'Best way to get in touch is send a text message.' },
-        { name: "Lauren's Garden Service and Native Plant Nursery", url: 'https://www.laurensgardenservice.com/services/' },
-        { name: 'Native Plant Landscape Design Corp', url: 'http://nativeplantld.com/', phone: '571-499-8378', desc: '"Functional gardens that are beautiful, low maintenance and kind to the environment."' },
-        { name: 'Native Roots Landscaping', url: 'https://www.nativerootscaping.com/', desc: 'We create functional landscapes that work at the intersection of nature and beauty.' },
-        { name: 'Plant Me Love', url: 'https://plantmelove.com/', address: 'Potomac, MD', phone: '202-883-3037', contact: 'Contact@plantmelove.com', desc: 'Native landscaping services led by certified Chesapeake Bay Landscape Professionals. By appointment.' },
-        { name: 'Seedhead Cooperative', url: '', contact: 'seedheadgardens@gmail.com', desc: 'A unique naturalistic gardening business replacing empty suburban landscaping conventions with radical home-scale ecological practices. Work concentrated in the Piney Branch, Sligo Creek and NW Branch Anacostia River watersheds of DC and Maryland.' },
-        { name: 'Strawberry Fields', url: 'http://strawberrygardendesign.com/', desc: 'A woman-owned landscape design and installation company located in Silver Spring and Takoma Park, MD. Creating beautiful and sustainable landscapes for our local community.' },
-        { name: 'Swamp Rose Coop', url: 'https://swamprosecoop.com', address: '940 Thayer Ave, #7512, Silver Spring, MD 20910', desc: 'Online native plant sales and landscaping services - Metro DC area.' },
-      ].map(co => (
-        <div class="card">
-          <h3 class="font-bold text-green-800">{co.name}</h3>
-          {co.url && <a href={co.url} target="_blank" rel="noopener" class="resource-link text-sm">{co.url}</a>}
-          {co.phone && <p class="text-gray-600 text-sm mt-1">{co.phone}</p>}
-          {co.contact && <p class="text-gray-600 text-sm">{co.contact}</p>}
-          {co.address && <p class="text-gray-600 text-sm">{co.address}</p>}
-          {co.desc && <p class="text-gray-700 mt-2 text-sm">{co.desc}</p>}
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- Organizations -->
-<section id="organizations" class="section bg-white">
-  <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🤝</span> Organizations That Promote Native Plants
-    </h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-      {[
-        { name: 'Wild Ones', url: 'https://wildones.org', sub: 'Local chapter' },
-        { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
-        { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
-      ].map(org => (
-        <div class="card text-center">
-          <h3 class="font-bold text-green-800">{org.name}</h3>
-          <a href={org.url} target="_blank" rel="noopener" class="resource-link text-sm block mt-1">{org.url}</a>
-          {org.sub && <p class="text-gray-600 text-xs mt-2">{org.sub}: <a href="https://nationscapitalregion.wildones.org/" target="_blank" rel="noopener" class="resource-link">nationscapitalregion.wildones.org</a></p>}
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-<!-- Leave the Leaves -->
-<section id="leaves" class="section bg-stone-50">
-  <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🍂</span> Why You Should Leave the Leaves
-    </h2>
-
-    <div class="grid gap-4 max-w-3xl">
-      {[
-        { title: 'Montgomery County MD: Tips on Leaving Leaves', url: 'https://www.montgomerycountymd.gov/DEP/property-care/lawns/tips/leaves.html' },
-        { title: 'How To Preserve Beneficial Hibernating Insects in Your Yard (UMD)', url: 'https://cmns.umd.edu/news-events/news/max-ferlauto-karin-burghardt-how-preserve-beneficial-hibernating-insects-your-yard' },
-        { title: 'Doug Tallamy Explains Why (and How to) Leave the Leaves (Gardenista)', url: 'https://www.gardenista.com/posts/ask-expert-doug-tallamy-leave-leaves/' },
-        { title: 'Leave the Leaves: Winter Habitat Protection (Xerces Society)', url: 'https://xerces.org/leave-the-leaves' },
-        { title: 'Leave the Leaves & Plant Debris - Support Insects (YouTube)', url: 'https://www.youtube.com/watch?v=vCjzcN_7JAU' },
-        { title: 'Eco-Conscious Spring and Fall Garden Cleanup (Anacostia River Watershed Society)', url: 'https://www.anacostiaws.org/blog/leave-the-leaves.html' },
-        { title: 'Xerces Blog: Leave the Leaves', url: 'https://xerces.org/blog/leave-the-leaves' },
-        { title: 'When Should You Rake Up Your Leaves in Spring? (FONTT)', url: 'https://fontt.org/hold-off-on-your-yards-spring-clean-up/' },
-        { title: "Don't Spring Into Garden Cleanup Too Soon (Xerces)", url: 'https://xerces.org/blog/dont-spring-into-garden-cleanup-too-soon' },
-        { title: '5 Tips On Leaving The Fall Leaves (YouTube)', url: 'https://www.youtube.com/watch?v=HvyPGCmx6ts' },
-        { title: 'Pro-Tips for Leaving the Leaves (National Wildlife Federation)', url: 'https://blog.nwf.org/2023/10/pro-tips-for-leaving-the-leaves/' },
-        { title: 'Washington Post: Why You Should Be Lazy and Leave Your Leaves', url: 'https://www.washingtonpost.com/climate-solutions/2023/10/14/raking-leaves-yard-fall-environment/' },
+        { label: '🌿 Nurseries', url: '/nurseries/', desc: 'Full directory of native plant vendors' },
+        { label: '🚜 Landscapers', url: '/landscapers/', desc: 'Companies that use mostly natives' },
+        { label: '🏡 Gardens to Visit', url: '/gardens-to-visit/', desc: 'Public gardens and arboretums' },
+        { label: '📚 Resources', url: '/resources/', desc: 'Plant guides, ID apps, organizations' },
       ].map(item => (
-        <div class="nursery-entry">
-          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
-        </div>
+        <a href={item.url} class="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow block">
+          <h3 class="font-bold text-green-700">{item.label}</h3>
+          <p class="text-gray-600 text-sm mt-1">{item.desc}</p>
+        </a>
       ))}
-    </div>
+    </nav>
   </div>
 </section>
 
 <!-- Bottom Contact -->
-<section class="section bg-green-50">
+<section class="section bg-white">
   <div class="container-narrow text-center">
     <p class="text-gray-700 mb-4 text-lg">Know other resources, or corrections needed?</p>
     <a href="mailto:kallen808@gmail.com" class="btn-primary">

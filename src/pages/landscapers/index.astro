@@ -1,0 +1,44 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+
+<PageLayout title="Landscapers" description="Native plant landscaping companies and services in the DC Metro area.">
+
+<!-- Landscaping Companies -->
+<section class="section bg-white">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🚜</span> Landscaping Companies That Use Mostly Natives
+    </h2>
+
+    <p class="text-gray-600 italic mb-6">I have not vetted any of these. Let me know if you have a particularly good (or bad) experience with any of them.</p>
+
+    <div class="grid gap-4 max-w-3xl">
+      {[
+        { name: 'Bloom Wild', url: 'http://www.bloom-wild.com/', contact: 'hello@bloom-wild.com', desc: 'Native plant consultations, coaching, garden design and installations/maintenance to folks in PG County, Mont County, and surrounding areas. Sliding scale fees for low-income/low-wealth clients.' },
+        { name: 'Bona Terra', url: 'https://bonaterradc.com/', contact: '(202) 507-9648 / bonaterra@bonaterradc.com', desc: 'Bay-friendly landscaping + native plants.' },
+        { name: 'Father Nature Restorative Landscaping', url: 'https://www.father-nature.com/', desc: 'Design, consultations, installation, and maintenance for sustainably focused projects. Restore habitats (meadows, shrublands, woodlands), install gardens, veggie gardens, rain gardens, and natural play areas.' },
+        { name: 'Gardenology', url: 'http://www.gardenologyus.com', phone: '(240) 621-0082', desc: 'Schedule a 15 minute Exploratory call at my.gardenologyus.com/optin' },
+        { name: 'HANDSDIRTYDC', url: '', contact: 'John@handsdirtydc.com / 202-747-4702 (text)', desc: 'Best way to get in touch is send a text message.' },
+        { name: "Lauren's Garden Service and Native Plant Nursery", url: 'https://www.laurensgardenservice.com/services/' },
+        { name: 'Native Plant Landscape Design Corp', url: 'http://nativeplantld.com/', phone: '571-499-8378', desc: '"Functional gardens that are beautiful, low maintenance and kind to the environment."' },
+        { name: 'Native Roots Landscaping', url: 'https://www.nativerootscaping.com/', desc: 'We create functional landscapes that work at the intersection of nature and beauty.' },
+        { name: 'Plant Me Love', url: 'https://plantmelove.com/', address: 'Potomac, MD', phone: '202-883-3037', contact: 'Contact@plantmelove.com', desc: 'Native landscaping services led by certified Chesapeake Bay Landscape Professionals. By appointment.' },
+        { name: 'Seedhead Cooperative', url: '', contact: 'seedheadgardens@gmail.com', desc: 'A unique naturalistic gardening business replacing empty suburban landscaping conventions with radical home-scale ecological practices. Work concentrated in the Piney Branch, Sligo Creek and NW Branch Anacostia River watersheds of DC and Maryland.' },
+        { name: 'Strawberry Fields', url: 'http://strawberrygardendesign.com/', desc: 'A woman-owned landscape design and installation company located in Silver Spring and Takoma Park, MD. Creating beautiful and sustainable landscapes for our local community.' },
+        { name: 'Swamp Rose Coop', url: 'https://swamprosecoop.com', address: '940 Thayer Ave, #7512, Silver Spring, MD 20910', desc: 'Online native plant sales and landscaping services - Metro DC area.' },
+      ].map(co => (
+        <div class="card">
+          <h3 class="font-bold text-green-800">{co.name}</h3>
+          {co.url && <a href={co.url} target="_blank" rel="noopener" class="resource-link text-sm">{co.url}</a>}
+          {co.phone && <p class="text-gray-600 text-sm mt-1">{co.phone}</p>}
+          {co.contact && <p class="text-gray-600 text-sm">{co.contact}</p>}
+          {co.address && <p class="text-gray-600 text-sm">{co.address}</p>}
+          {co.desc && <p class="text-gray-700 mt-2 text-sm">{co.desc}</p>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+</PageLayout>
