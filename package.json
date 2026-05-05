@@ -5,15 +5,24 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "studio": "cd sanity/studio && npm run dev",
+    "studio:build": "cd sanity/studio && npm run build",
+    "studio:embed": "node scripts/postbuild-studio.mjs",
+    "build:full": "npm run build && npm run studio:embed"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
+    "@sanity/client": "^7.22.0",
+    "@sanity/vision": "^5.23.0",
     "astro": "^4.16.0",
+    "sanity": "^5.23.0",
     "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "puppeteer": "^24.42.0"
+    "@types/node": "^25.6.0",
+    "puppeteer": "^24.42.0",
+    "typescript": "^5.9.3"
   }
 }
