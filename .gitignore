@@ -4,3 +4,14 @@ dist/
 .DS_Store
 .astro
 src/env.d.ts
+
+# Sanity Studio generated files
+sanity/studio/nativeplantsdmv/.sanity/
+sanity/studio/nativeplantsdmv/dist/
+sanity/studio/nativeplantsdmv/node_modules/
+sanity/studio/nativeplantsdmv/package-lock.json
+sanity/studio/nativeplantsdmv/eslint.config.mjs
+sanity/studio/nativeplantsdmv/tsconfig.json
+
+# Development scripts (one-time use)
+scripts/*.mjs
