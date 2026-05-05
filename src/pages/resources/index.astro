@@ -63,10 +63,33 @@ import PageLayout from '../../layouts/PageLayout.astro';
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl">
       {[
-        { name: 'Picture This', desc: 'Take a picture of any plant and get the name, plus lots of other information. Scroll down to map to see if it is native to eastern US.', price: '$30/year' },
-        { name: 'Seek', desc: 'Get plant (or bug) in focus to light up 7 dots. When all are lit you have identified your subject. Click photo to learn more about that plant. The "kid" version of iNaturalist.', price: 'Free' },
-        { name: 'iNaturalist', desc: 'Several steps for ID, but used worldwide for scientific study.', price: 'Free' },
-        { name: 'Google Lens', desc: 'Part of the Google suite: take a picture and identify anything &mdash; plants, animals, furniture, etc.', price: 'Free' },
+        {
+          name: 'Picture This',
+          desc: 'Take a picture of any plant and get the name, plus lots of other information. Scroll down to map to see if it is native to eastern US.',
+          price: '$30/year',
+          ios: 'https://apps.apple.com/us/app/picturethis-plant-identifier/id1252497129',
+          android: 'https://play.google.com/store/apps/details?id=cn.danatech.xingseus&hl=en-US'
+        },
+        {
+          name: 'Seek',
+          desc: 'Get plant (or bug) in focus to light up 7 dots. When all are lit you have identified your subject. Click photo to learn more about that plant. The "kid" version of iNaturalist.',
+          price: 'Free',
+          ios: 'https://apps.apple.com/us/app/seek-by-inaturalist/id1353224144',
+          android: 'https://play.google.com/store/apps/details?id=org.inaturalist.seek&hl=en-US'
+        },
+        {
+          name: 'iNaturalist',
+          desc: 'Several steps for ID, but used worldwide for scientific study.',
+          price: 'Free',
+          ios: 'https://apps.apple.com/us/app/inaturalist/id6475737561',
+          android: 'https://play.google.com/store/apps/details?id=org.inaturalist.android&hl=en-US'
+        },
+        {
+          name: 'Google Lens',
+          desc: 'Part of the Google suite: take a picture and identify anything &mdash; plants, animals, furniture, etc.',
+          price: 'Free',
+          android: 'https://play.google.com/store/apps/details?id=com.google.ar.lens&hl=en-US'
+        },
       ].map(app => (
         <div class="card">
           <h3 class="font-bold text-green-800">{app.name}</h3>
@@ -74,6 +97,18 @@ import PageLayout from '../../layouts/PageLayout.astro';
           <span class={`inline-block mt-2 text-xs font-medium px-2 py-1 rounded-full ${app.price === 'Free' ? 'bg-green-100 text-green-700' : 'bg-stone-100 text-stone-600'}`}>
             {app.price}
           </span>
+          <div class="mt-2 flex gap-2">
+            {app.ios && (
+              <a href={app.ios} target="_blank" rel="noopener" class="text-xs text-gray-500 hover:text-green-700 transition-colors">
+                App Store ↗
+              </a>
+            )}
+            {app.android && (
+              <a href={app.android} target="_blank" rel="noopener" class="text-xs text-gray-500 hover:text-green-700 transition-colors">
+                Google Play ↗
+              </a>
+            )}
+          </div>
         </div>
       ))}
     </div>
