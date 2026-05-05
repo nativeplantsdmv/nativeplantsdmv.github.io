@@ -135,4 +135,38 @@ import PageLayout from '../../layouts/PageLayout.astro';
   </div>
 </section>
 
+<!-- What Native Plants Are Good For Your Yard -->
+<section class="section bg-white">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">&#127809;</span> What Native Plants Are Good for Your Yard?
+    </h2>
+
+    <p class="text-gray-700 mb-4 font-medium">
+      <a href="https://mdflora.org/nurseries.html" target="_blank" rel="noopener" class="resource-link">Maryland Native Plant Society</a> &mdash; Appreciation, Conservation, Education
+    </p>
+
+    <div class="grid gap-4 max-w-3xl mt-6">
+      {[
+        { title: 'Regional Native Plant Vendors (Retail and Wholesale)', url: 'https://mdflora.org/nurseries.html' },
+        { title: 'Native Plants for Shady Slopes', url: 'https://extension.umd.edu/resource/native-plants-shady-slopes' },
+        { title: 'Native Plants for Sunny Slopes', url: 'https://extension.umd.edu/resource/native-plants-sunny-slopes' },
+        { title: 'Rainscapes Plants Guide (Montgomery County, MD)', url: 'https://www.sierraclub.org/sites/www.sierraclub.org/files/sce/maryland-chapter/Campaigns/Natural_Places/Native%20Plants%20Shrubs%20Sunny%20Shade%20Invasives%20Deer%20Resistant%20-%20Copy.pdf' },
+        { title: 'Recommended Native Plants for Maryland', url: 'https://extension.umd.edu/resource/recommended-native-plants-maryland' },
+        { title: 'Native Plant Top 10 Lists (grownative.org)', url: 'https://grownative.org/learn/top-10-lists/' },
+        { title: 'Gardening with Natives in Wet Areas', url: 'https://piedmontmastergardeners.org/article/gardening-with-natives-in-wet-areas/' },
+        { title: 'Top 5 Groundcover Plants (My Green Montgomery)', url: 'https://mygreenmontgomery.org/2025/top-5-groundcover-plants/' },
+        { title: 'Shrubs and the Pollinators Who Love Them (Harvard)', url: 'https://arboretum.harvard.edu/stories/shrubs-and-the-pollinators-who-love-them/' },
+        { title: 'Maryland Natives Spreadsheet (moisture, sun, soil, size, etc.)', url: 'https://docs.google.com/spreadsheets/d/1G4eoUbqfp0M8vwNd-EsgVHB0ISrO0350v-0NwbGdKPQ/edit?usp=sharing' },
+        { title: 'Friends of Native Trees Takoma (FONTT) - Tree Guide', url: 'https://fontt.org/please-download-our-guide/takoma-park-native-tree-selection-guide/' },
+        { title: 'Pollinator Plants: Mid Atlantic Region (PDF)', url: 'https://extension.umd.edu/sites/extension.umd.edu/files/2021-03/FC-MGPub%20Pollinator%20Plants%20Mid-Atlantic%20Region.pdf' },
+      ].map(item => (
+        <div class="nursery-entry">
+          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
 </PageLayout>

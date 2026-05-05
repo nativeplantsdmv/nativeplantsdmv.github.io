@@ -9,58 +9,31 @@ const endorsed = nurseries?.filter(n => n.isEndorsed) ?? [];
 const others = nurseries?.filter(n => !n.isEndorsed) ?? [];
 ---
 
-<PageLayout title="Nurseries" description="Directory of native plant nurseries near the DC Metro area, plus guides to choosing native plants for your yard.">
+<PageLayout title="Nurseries" description="Directory of native plant nurseries near the DC Metro area. Find places to buy native plants for your yard.">
 
-<!-- What Plants for Your Yard -->
-<section class="section bg-stone-50">
+<!-- Hero -->
+<section class="relative bg-gradient-to-b from-teal-700 to-teal-600 text-white -mt-8 pt-8 pb-12 sm:pb-16 rounded-b-3xl sm:mx-auto max-w-6xl">
   <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">&#127809;</span> What Native Plants Are Good for Your Yard?
-    </h2>
-
-    <p class="text-gray-700 mb-4 font-medium">
-      <a href="https://mdflora.org/nurseries.html" target="_blank" rel="noopener" class="resource-link">Maryland Native Plant Society</a> &mdash; Appreciation, Conservation, Education
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-center mb-6">Nurseries</h1>
+    <p class="text-xl text-teal-100 text-center max-w-2xl mx-auto">
+      Places to find and buy native plants near the DC Metro area.
     </p>
-
-    <div class="grid gap-4 max-w-3xl mt-6">
-      {[
-        { title: 'Regional Native Plant Vendors (Retail and Wholesale)', url: 'https://mdflora.org/nurseries.html' },
-        { title: 'Native Plants for Shady Slopes', url: 'https://extension.umd.edu/resource/native-plants-shady-slopes' },
-        { title: 'Native Plants for Sunny Slopes', url: 'https://extension.umd.edu/resource/native-plants-sunny-slopes' },
-        { title: 'Rainscapes Plants Guide (Montgomery County, MD)', url: 'https://www.sierraclub.org/sites/www.sierraclub.org/files/sce/maryland-chapter/Campaigns/Natural_Places/Native%20Plants%20Shrubs%20Sunny%20Shade%20Invasives%20Deer%20Resistant%20-%20Copy.pdf' },
-        { title: 'Recommended Native Plants for Maryland', url: 'https://extension.umd.edu/resource/recommended-native-plants-maryland' },
-        { title: 'Native Plant Top 10 Lists (grownative.org)', url: 'https://grownative.org/learn/top-10-lists/' },
-        { title: 'Gardening with Natives in Wet Areas', url: 'https://piedmontmastergardeners.org/article/gardening-with-natives-in-wet-areas/' },
-        { title: 'Top 5 Groundcover Plants (My Green Montgomery)', url: 'https://mygreenmontgomery.org/2025/top-5-groundcover-plants/' },
-        { title: 'Shrubs and the Pollinators Who Love Them (Harvard)', url: 'https://arboretum.harvard.edu/stories/shrubs-and-the-pollinators-who-love-them/' },
-        { title: 'Maryland Natives Spreadsheet (moisture, sun, soil, size, etc.)', url: 'https://docs.google.com/spreadsheets/d/1G4eoUbqfp0M8vwNd-EsgVHB0ISrO0350v-0NwbGdKPQ/edit?usp=sharing' },
-        { title: 'Friends of Native Trees Takoma (FONTT) - Tree Guide', url: 'https://fontt.org/please-download-our-guide/takoma-park-native-tree-selection-guide/' },
-        { title: 'Pollinator Plants: Mid Atlantic Region (PDF)', url: 'https://extension.umd.edu/sites/extension.umd.edu/files/2021-03/FC-MGPub%20Pollinator%20Plants%20Mid-Atlantic%20Region.pdf' },
-      ].map(item => (
-        <div class="nursery-entry">
-          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
-        </div>
-      ))}
-    </div>
   </div>
 </section>
 
 <!-- Nurseries -->
 <section class="section bg-white">
-  <div class="container-narrow">
-    <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">&#127807;</span> Where to Get Them &mdash; Nurseries That Sell Natives
-    </h2>
+  <div class="container-narrow max-w-3xl mx-auto">
 
     {endorsed.length > 0 && (
-      <div class="bg-green-100 border border-green-300 rounded-lg p-4 mb-6 max-w-3xl">
+      <div class="bg-green-100 border border-green-300 rounded-lg p-4 mb-6">
         <p class="text-green-800 font-medium">The first {endorsed.length} listed sell <strong>only natives</strong> and no cultivars. They all come highly recommended.</p>
       </div>
     )}
 
-    <!-- Endorsed / Top nurseries -->
+    <!-- Endorsed nurseries -->
     {endorsed.length > 0 && (
-      <div class="grid gap-6 max-w-3xl mb-8">
+      <div class="grid gap-6 mb-8">
         {endorsed.map(nursery => (
           <div class="card border-l-4 border-green-500">
             <h3 class="font-bold text-lg text-green-800">{nursery.name}</h3>
@@ -76,7 +49,7 @@ const others = nurseries?.filter(n => !n.isEndorsed) ?? [];
     <p class="text-gray-600 italic mb-6 text-sm">If there is a specific plant I want, I will put the scientific name plus "for sale" in a search engine to see who has it in stock. &mdash; Ken</p>
 
     <!-- Full nursery directory -->
-    <div class="grid gap-4 max-w-3xl">
+    <div class="grid gap-4">
       {others.map(nursery => (
         <div class="nursery-entry">
           <h3 class="font-bold text-green-800">{nursery.name}</h3>
@@ -88,6 +61,14 @@ const others = nurseries?.filter(n => !n.isEndorsed) ?? [];
         </div>
       ))}
     </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section bg-green-50">
+  <div class="container-narrow text-center max-w-xl mx-auto">
+    <p class="text-gray-700 mb-4">Know of a nursery that should be listed here?</p>
+    <a href="mailto:kallen808@gmail.com" class="btn-primary">Email Ken</a>
   </div>
 </section>
 
