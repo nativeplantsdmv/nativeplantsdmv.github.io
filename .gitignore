@@ -5,6 +5,9 @@ dist/
 .astro
 src/env.d.ts
 
+# Embedded repo (local clone)
+nativeplantsdmv.github.io/
+
 # Sanity Studio generated files
 sanity/studio/nativeplantsdmv/.sanity/
 sanity/studio/nativeplantsdmv/dist/
