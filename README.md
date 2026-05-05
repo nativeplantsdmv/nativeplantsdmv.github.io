@@ -34,7 +34,6 @@ new/
 │   │   ├── landscapers/index.astro    # Landscaping companies (Sanity-powered)
 │   │   ├── gardens-to-visit/index.astro  # Public native gardens (Sanity-powered)
 │   │   ├── resources/index.astro      # Reference guides, apps, organizations
-│   │   └── studio/index.astro         # Embedded admin for editing content
 │   └── styles/
 │       └── global.css         # Tailwind + custom CSS classes
 ├── sanity-seed/               # JSON seed data (local dev fallback)
@@ -49,15 +48,7 @@ new/
 
 ## Content Management
 
-Content for events, nurseries, landscapers, and gardens is managed through **Sanity CMS**. There are two ways to edit:
-
-### Option 1: Hosted Sanity Studio (Recommended)
-
-Full-featured admin UI at https://nativeplantsdmv.sanity.studio/ with schema validation and rich text editing.
-
-### Option 2: Embedded Admin Page
-
-Access the embedded editor at `https://yoursite.com/studio/` for quick edits without leaving the site. Requires `SANITY_STUDIO_TOKEN` environment variable to be set during build.
+Content for events, nurseries, landscapers, and gardens is managed through **Sanity CMS** at https://nativeplantsdmv.sanity.studio/ with schema validation and rich text editing.
 
 ### Content Types
 
@@ -74,7 +65,6 @@ Set these in Cloudflare Pages (or a `.env` file locally):
 |----------|----------|---------|
 | `SANITY_PROJECT_ID` | Yes | Sanity project ID (`z9dgpdy9`) |
 | `SANITY_DATASET` | No | Dataset name (default: `production`) |
-| `SANITY_STUDIO_TOKEN` | For `/studio/` only | Write token for embedded admin |
 
 ## Quick Start
 
