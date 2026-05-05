@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node -e \"if(!process.env.SANITY_PROJECT_ID){console.log('\\u26a0\\ufe0f  No SANITY_PROJECT_ID set — building with empty CMS data.')}\"",
+    "build": "astro build",
     "preview": "astro preview",
     "studio": "cd sanity/studio && npm run dev",
     "studio:build": "cd sanity/studio && npm run build"

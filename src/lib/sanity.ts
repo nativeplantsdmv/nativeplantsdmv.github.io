@@ -1,4 +1,6 @@
 import {createClient, type QueryParams} from '@sanity/client'
+import * as fs from 'fs'
+import * as path from 'path'
 
 const projectId = process.env.SANITY_PROJECT_ID ?? ''
 const dataset = process.env.SANITY_DATASET ?? 'production'
@@ -19,17 +21,54 @@ if (projectId) {
 
 export const sanity = _sanity!
 
-export async function sanityFetch<D>(query: string, params: QueryParams = {}): Promise<D[]> {
-  if (!sanity) {
-    console.warn('⚠️  No SANITY_PROJECT_ID set — returning empty arrays. Set the env var to use live CMS data.')
-    return [] as D[]
-  }
+// Seed data fallback for local dev without Sanity configured
+let _cachedSeedData: Record<string, unknown[]> | null = null
 
-  try {
-    const results = await sanity.fetch<D[]>(query, params)
-    return results ?? []
-  } catch (err) {
-    console.error('❌ Sanity fetch failed:', err instanceof Error ? err.message : String(err))
+async function loadSeedData(): Promise<Record<string, unknown[]>> {
+  if (_cachedSeedData) return _cachedSeedData
+  
+  const seedDir = path.resolve(process.cwd(), 'sanity-seed')
+  
+  const types: Record<string, string> = {
+    event: 'events.json',
+    nursery: 'nurseries.json',
+    landscapeCompany: 'landscapers.json',
+    garden: 'gardens.json',
+  }
+  
+  _cachedSeedData = {} as Record<string, unknown[]>
+  
+  for (const [type, file] of Object.entries(types)) {
+    try {
+      const raw = fs.readFileSync(path.join(seedDir, file), 'utf-8')
+      _cachedSeedData[type] = JSON.parse(raw)
+    } catch {
+      // File doesn't exist or is invalid — skip silently
+    }
+  }
+  
+  return _cachedSeedData
+}
+
+export async function sanityFetch<D>(query: string, params: QueryParams = {}): Promise<D[]> {
+  if (_sanity) {
+    try {
+      const results = await _sanity.fetch<D[]>(query, params)
+      return results ?? []
+    } catch (err) {
+      console.error('❌ Sanity fetch failed:', err instanceof Error ? err.message : String(err))
+      return [] as D[]
+    }
+  }
+  
+  // Fallback: parse query and serve from seed data
+  const typeMatch = query.match(/\[_type\s*==\s*"(\w+)"\]/)
+  if (!typeMatch) {
+    console.warn('⚠️  Cannot parse Sanity query for seed fallback:', query.substring(0, 80))
     return [] as D[]
   }
+  
+  const typeName = typeMatch[1]
+  const seedData = await loadSeedData()
+  return (seedData[typeName] ?? []) as D[]
 }
