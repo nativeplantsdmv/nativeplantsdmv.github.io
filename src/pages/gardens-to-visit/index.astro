@@ -1,5 +1,9 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import { sanityFetch } from '../../lib/sanity';
+
+const query = `*[_type == "garden"] | order(name asc)`;
+const gardens = await sanityFetch<typeof gardens>(query);
 ---
 
 <PageLayout title="Gardens to Visit" description="Public native gardens, arboretums, and natural spaces in the DC Metro area worth visiting.">
@@ -8,30 +12,20 @@ import PageLayout from '../../layouts/PageLayout.astro';
 <section class="section bg-white">
   <div class="container-narrow">
     <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🏡</span> All-Native Gardens to Visit
+      <span class="text-3xl">&#127968;</span> All-Native Gardens to Visit
     </h2>
 
     <p class="text-gray-700 mb-6">These public gardens and natural areas showcase native plants in action. Great for inspiration before starting your own garden.</p>
 
     <div class="grid gap-4 max-w-3xl">
-      {[
-        { name: 'Triangle Park', desc: 'Near the Takoma Metro, where Blair Road and 4th St. meet.' },
-        { name: 'Glenside Garden', desc: 'At Glenside Dr. and Jackson Ave., follow the path that takes you over the bridge. In Takoma Park, MD. Maintained by the neighbors who live right there.' },
-        { name: 'University of MD, College Park', url: 'https://arboretum.umd.edu/maryland-natives-shade-garden', desc: 'Small garden between Francis Scott Key Hall and Woods Hall on McKeldin Mall. A dozen natives have labels.' },
-        { name: 'Delaware Botanic Garden', url: 'http://www.delawaregardens.org', address: '30220 Piney Neck Road, Dagsboro, DE 19939', phone: '302-321-9061' },
-        { name: 'Patterson Park Audubon Center', url: 'https://patterson.audubon.org', address: '2901 E. Baltimore St., Box 2, Baltimore, MD 21224', phone: '410-558-BIRD (2473)' },
-        { name: 'Mt. Cuba Center (My favorite!)', url: 'https://mtcubacenter.org/', address: '3120 Barley Mill Rd, Hockessin, DE 19707', phone: '302.239.4244' },
-        { name: 'Stoneleigh: A Natural Garden', url: 'https://stoneleighgarden.org/garden/home/', address: '1829 East County Line Road, Villanova, PA 19085', phone: '610-353-5587' },
-        { name: 'Adkins Arboretum', url: 'https://www.adkinsarboretum.org', address: '12610 Eveland Road, Ridgely, MD 21660' },
-        { name: 'Blandy Experimental Farm (State Arboretum of Virginia)', url: 'https://blandy.virginia.edu', address: '400 Blandy Farm Lane, Boyce, VA 22620', phone: '540-837-1758', contact: 'blandy@virginia.edu' },
-      ].map(garden => (
+      {gardens?.map(garden => (
         <div class="card">
           <h3 class="font-bold text-green-800">{garden.name}</h3>
           {garden.url && <a href={garden.url} target="_blank" rel="noopener" class="resource-link text-sm">{garden.url}</a>}
-          <p class="text-gray-700 mt-2 text-sm">{garden.desc}</p>
+          {garden.description && <p class="text-gray-700 mt-2 text-sm">{garden.description}</p>}
           {garden.address && <p class="text-gray-600 text-sm mt-1">{garden.address}</p>}
           {garden.phone && <p class="text-gray-600 text-sm">{garden.phone}</p>}
-          {garden.contact && <p class="text-gray-600 text-sm">{garden.contact}</p>}
+          {garden.contactEmail && <p class="text-gray-600 text-sm">{garden.contactEmail}</p>}
         </div>
       ))}
     </div>
