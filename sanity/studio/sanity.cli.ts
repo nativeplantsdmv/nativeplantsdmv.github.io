@@ -5,11 +5,7 @@ export default defineCliConfig({
     projectId: 'z9dgpdy9',
     dataset: 'production',
   },
-  // Include dev workspace for the build
-  studios: [
-    {
-      name: 'nativeplantsdmv',
-      path: './dev.config.ts',
-    },
-  ],
+  deployment: {
+    appId: 'cqnjeo7x6ash08wbdt8ix7l9',
+  },
 })
