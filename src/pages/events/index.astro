@@ -76,11 +76,14 @@ const noteColors: Record<string, string> = {
                   )}
                 </div>
 
-                {noteClass && event.noteContent && (
-                  <div class={`${noteClass} border rounded-lg p-4 mt-4`}>
-                    <p dangerouslySetInnerHTML={{ __html: event.noteContent.replace(/\n/g, '<br/>') }} />
-                  </div>
-                )}
+                {noteClass && event.noteContent && (() => {
+                  const safeHtml = event.noteContent.replace(/\n/g, '<br/>')
+                  return (
+                    <div class={`${noteClass} border rounded-lg p-4 mt-4`}>
+                      <p set:html={safeHtml} />
+                    </div>
+                  )
+                })()}
 
                 {event.description && !event.noteType && (
                   <div class="space-y-2 text-gray-700 mt-4 whitespace-pre-line">{event.description}</div>
