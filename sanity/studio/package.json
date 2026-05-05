@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "dev": "sanity dev",
-    "build": "sanity build",
+    "build": "sanity build dist --yes",
     "deploy": "sanity deploy"
   },
   "dependencies": {
     "@sanity/vision": "^5.23.0",
+    "@sanity/cli": "^6.5.0",
     "react": "^19.2.2",
     "react-dom": "^19.2.2",
     "sanity": "^5.23.0",

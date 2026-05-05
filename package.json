@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "studio": "cd sanity/studio && npm run dev",
-    "studio:build": "cd sanity/studio && npm run build"
+    "studio:build": "cd sanity/studio && npm run build",
+    "studio:embed": "node scripts/postbuild-studio.mjs",
+    "build:full": "npm run build && npm run studio:embed"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
