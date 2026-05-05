@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'nativeplantsdmv',
   title: 'NativePlantsDMV',
 
-  projectId: '', // Set after project creation via `npx sanity projects list` or in Sanity Dashboard
+  projectId: 'z9dgpdy9',
   dataset: 'production',
 
   plugins: [deskTool(), visionTool()],

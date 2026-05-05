@@ -48,7 +48,7 @@ export const eventSchema: SchemaTypeDefinition = {
         list: [
           {title: 'Members Only', value: 'amber'},
           {title: 'Info / Tip', value: 'green'},
-          {title: None, value: null},
+          {title: 'None', value: null},
         ],
       },
     },
