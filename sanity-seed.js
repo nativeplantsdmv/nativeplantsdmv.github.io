@@ -31,37 +31,51 @@ const client = createClient({
   useCdn: false, // Must use token with useCdn: false
 })
 
+// Sanitize a string into a valid Sanity document ID component
+function sanitizeId(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')   // Replace non-alphanumeric with hyphens
+    .replace(/^-+|-+$/g, '')        // Trim leading/trailing hyphens
+    .substring(0, 50)               // Max 50 chars
+}
+
 const seedDir = path.join(process.cwd(), 'sanity-seed')
 
+// Map file types to Sanity document type names
 const files = {
-  event: 'events.json',
-  nursery: 'nurseries.json',
-  landscapeCompany: 'landscapers.json',
-  garden: 'gardens.json',
+  event: { file: 'events.json', typeName: 'event' },
+  nursery: { file: 'nurseries.json', typeName: 'nursery' },
+  landscapeCompany: { file: 'landscapers.json', typeName: 'landscapeCompany' },
+  garden: { file: 'gardens.json', typeName: 'garden' },
 }
 
 let created = 0
 let updated = 0
 let errors = []
 
-for (const [type, file] of Object.entries(files)) {
-  const filePath = path.join(seedDir, file)
+for (const [key, config] of Object.entries(files)) {
+  const filePath = path.join(seedDir, config.file)
   
   if (!fs.existsSync(filePath)) {
-    console.warn(`Skipping ${file} — not found.`)
+    console.warn(`Skipping ${config.file} — not found.`)
     continue
   }
   
   const docs = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-  console.log(`\nImporting ${type}: ${docs.length} documents...`)
+  console.log(`\nImporting ${key}: ${docs.length} documents...`)
   
   for (const doc of docs) {
     try {
       // Create a unique identifier if not present
-      const id = doc._id || `${type}-${doc.name || doc.title || ''}`.replace(/\s+/g, '-').toLowerCase()
+      const rawName = doc.name || doc.title || `${key}-unknown`
+      const id = `${config.typeName}-${sanitizeId(rawName)}`
       
       const sanitized = { ...doc }
-      delete sanitized._id // Let Sanity assign the ID
+      delete sanitized._id // Let Sanity handle IDs
+      
+      // IMPORTANT: Every Sanity document MUST have a _type field
+      sanitized._type = config.typeName
       
       // Upsert: create if doesn't exist, update if does
       try {
@@ -75,7 +89,7 @@ for (const [type, file] of Object.entries(files)) {
         } else throw err
       }
     } catch (err) {
-      errors.push(`${type}: ${err.message}`)
+      errors.push(`${key}: ${err.message}`)
       console.error(`  ✗ Failed: ${doc.name || doc.title || '(unknown)'}`)
     }
   }
