@@ -3,7 +3,7 @@ const blockContent = {
   name: 'blockContent',
   title: 'Rich Text',
   type: 'array',
-  of: [{name: 'block'}],
+  of: [{type: 'block'}],
 }
 
 // Event type
