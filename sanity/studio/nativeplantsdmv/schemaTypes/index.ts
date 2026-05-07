@@ -1,3 +1,11 @@
+// Portable Text type for rich content (bold, italic, links, lists)
+const blockContent = {
+  name: 'blockContent',
+  title: 'Rich Text',
+  type: 'array',
+  of: [{name: 'block'}],
+}
+
 // Event type
 const eventSchema = {
   name: 'event',
@@ -8,10 +16,10 @@ const eventSchema = {
     {name: 'venue', title: 'Venue / Location Name', type: 'string'},
     {name: 'address', title: 'Address', type: 'string'},
     {name: 'dateStart', title: 'Date & Time (starts)', description: 'e.g. 2026-05-09T13:00', type: 'datetime'},
-    {name: 'description', title: 'Description', type: 'text'},
+    {name: 'description', title: 'Description', type: 'blockContent'},
     {name: 'hosts', title: 'Hosted by (plain text)', type: 'string', description: 'e.g. CAC, SSTP Aid Community Garden group'},
     {name: 'noteType', title: 'Warning Note Type', description: 'Optional callout box before the event details', type: 'string', options: {list: [{title: 'Members Only', value: 'amber'}, {title: 'Info / Tip', value: 'green'}, {title: 'None', value: null}]}},
-    {name: 'noteContent', title: 'Warning Note Text', type: 'text', hidden: ({parent}) => parent?.noteType !== 'amber' && parent?.noteType !== 'green'},
+    {name: 'noteContent', title: 'Warning Note Text', type: 'blockContent', hidden: ({parent}) => parent?.noteType !== 'amber' && parent?.noteType !== 'green'},
     {name: 'imageAsset', title: 'Event Image', type: 'image', options: {hotspot: true}},
   ],
   preview: {
@@ -77,9 +85,24 @@ const gardenSchema = {
   preview: {select: {title: 'name'}, prepare({title}) { return {title} }},
 }
 
+// Recurring Activity type (for Events page cards)
+const recurringActivitySchema = {
+  name: 'recurringActivity',
+  title: 'Recurring Activity',
+  type: 'document',
+  fields: [
+    {name: 'title', title: 'Title', type: 'string', description: 'e.g. "Plant Swaps — Every Spring and Fall"'},
+    {name: 'body', title: 'Body', type: 'blockContent', description: 'Description shown as a card on the Events page'},
+    {name: 'sortOrder', title: 'Sort Order', type: 'number', description: 'Lower numbers appear first'},
+  ],
+  preview: {select: {title: 'title'}, prepare({title}) { return {title} }},
+}
+
 export const schemaTypes = [
+  blockContent,
   eventSchema,
   nurserySchema,
   landscapeCompanySchema,
   gardenSchema,
+  recurringActivitySchema,
 ]

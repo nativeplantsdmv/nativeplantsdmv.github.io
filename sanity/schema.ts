@@ -1,6 +1,14 @@
 import {type SchemaTypeDefinition} from 'sanity'
 
-export const schemaTypes = [eventSchema, nurserySchema, landscapeCompanySchema, gardenSchema]
+// Portable Text type for rich content (bold, italic, links, lists)
+const blockContent: SchemaTypeDefinition = {
+  name: 'blockContent',
+  title: 'Rich Text',
+  type: 'array',
+  of: [{type: 'block'}],
+}
+
+export const schemaTypes = [blockContent, eventSchema, nurserySchema, landscapeCompanySchema, gardenSchema, recurringActivitySchema]
 
 export const eventSchema: SchemaTypeDefinition = {
   name: 'event',
@@ -31,7 +39,7 @@ export const eventSchema: SchemaTypeDefinition = {
     {
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'blockContent',
     },
     {
       name: 'hosts',
@@ -55,7 +63,7 @@ export const eventSchema: SchemaTypeDefinition = {
     {
       name: 'noteContent',
       title: 'Warning Note Text',
-      type: 'text',
+      type: 'blockContent',
       hidden: ({parent}) => parent?.noteType !== 'amber' && parent?.noteType !== 'green',
     },
     {
@@ -219,6 +227,38 @@ export const gardenSchema: SchemaTypeDefinition = {
   ],
   preview: {
     select: {title: 'name'},
+    prepare({title}) {
+      return {title}
+    },
+  },
+}
+
+export const recurringActivitySchema: SchemaTypeDefinition = {
+  name: 'recurringActivity',
+  title: 'Recurring Activity',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description: 'e.g. "Plant Swaps — Every Spring and Fall"',
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+      description: 'Description shown as a card on the Events page',
+    },
+    {
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number',
+      description: 'Lower numbers appear first',
+    },
+  ],
+  preview: {
+    select: {title: 'title'},
     prepare({title}) {
       return {title}
     },

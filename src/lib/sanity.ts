@@ -36,6 +36,7 @@ async function loadSeedData(): Promise<Record<string, unknown[]>> {
     nursery: 'nurseries.json',
     landscapeCompany: 'landscapers.json',
     garden: 'gardens.json',
+    recurringActivity: 'recurring-activities.json',
   }
 
   _cachedSeedData = {} as Record<string, unknown[]>
@@ -64,7 +65,7 @@ export async function sanityFetch<D>(query: string, params: QueryParams = {}): P
   }
 
   // Fallback: parse query and serve from seed data
-  const typeMatch = query.match(/[_type\s*==\s*"(\w+)"]/)
+  const typeMatch = query.match(/\[_type\s*==\s*"(\w+)"]/)
   if (!typeMatch) {
     console.warn('Cannot parse Sanity query for seed fallback:', query.substring(0, 80))
     return [] as D[]

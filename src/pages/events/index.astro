@@ -1,9 +1,13 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import { sanityFetch } from '../../lib/sanity';
+import { serializePortableText, portableTextToPlainText } from '../../lib/portabletext';
 
-const query = `*[_type == "event"] | order(dateStart asc)`;
-const events = await sanityFetch<typeof events>(query);
+const eventsQuery = `*[_type == "event"] | order(dateStart asc)`;
+const events = await sanityFetch(eventsQuery);
+
+const recurringQuery = `*[_type == "recurringActivity"] | order(sortOrder asc)`;
+const recurringActivities = await sanityFetch(recurringQuery);
 
 // Helper to format date components for the calendar badge
 function formatDateBadge(dateStr: string): { month: string, day: number } {
@@ -23,6 +27,28 @@ const noteColors: Record<string, string> = {
   amber: 'bg-amber-50 border-amber-200 text-amber-800',
   green: 'bg-green-50 border-green-200 text-green-800',
 };
+
+// Render Portable Text or fallback to plain text (for legacy data)
+function renderDescription(desc: any): string {
+  if (Array.isArray(desc)) {
+    return serializePortableText(desc);
+  }
+  if (typeof desc === 'string') {
+    // Legacy plain text - convert newlines to <br>
+    return desc.replace(/\n/g, '<br/>');
+  }
+  return '';
+}
+
+function renderNoteContent(note: any): string {
+  if (Array.isArray(note)) {
+    return serializePortableText(note);
+  }
+  if (typeof note === 'string') {
+    return note.replace(/\n/g, '<br/>');
+  }
+  return '';
+}
 ---
 
 <PageLayout title="Current Events" description="Native plant exchanges, swaps, and events in the DC Metro area. Spring 2026 schedule and upcoming activities.">
@@ -47,6 +73,8 @@ const noteColors: Record<string, string> = {
         const badge = formatDateBadge(event.dateStart);
         const times = formatTime(event.dateStart);
         const noteClass = event.noteType ? noteColors[event.noteType] : null;
+        const descriptionHtml = renderDescription(event.description);
+        const noteHtml = renderNoteContent(event.noteContent);
 
         return (
           <article class="event-card">
@@ -76,17 +104,14 @@ const noteColors: Record<string, string> = {
                   )}
                 </div>
 
-                {noteClass && event.noteContent && (() => {
-                  const safeHtml = event.noteContent.replace(/\n/g, '<br/>')
-                  return (
-                    <div class={`${noteClass} border rounded-lg p-4 mt-4`}>
-                      <p set:html={safeHtml} />
-                    </div>
-                  )
-                })()}
+                {noteClass && noteHtml && (
+                  <div class={`${noteClass} border rounded-lg p-4 mt-4`}>
+                    <p set:html={noteHtml} />
+                  </div>
+                )}
 
-                {event.description && !event.noteType && (
-                  <div class="space-y-2 text-gray-700 mt-4 whitespace-pre-line">{event.description}</div>
+                {descriptionHtml && !event.noteType && (
+                  <div class="space-y-2 text-gray-700 mt-4" set:html={descriptionHtml} />
                 )}
 
                 {event.hosts && (
@@ -131,32 +156,22 @@ const noteColors: Record<string, string> = {
   </div>
 </section>
 
-<!-- Recurring Activities -->
+<!-- Recurring Activities (from Sanity) -->
 <section class="section bg-stone-50">
   <div class="container-narrow max-w-3xl mx-auto">
     <h2 class="section-title text-center">Recurring Activities</h2>
 
     <div class="grid gap-4">
-      <div class="card">
-        <h3 class="font-bold text-green-800 text-lg">Plant Swaps &mdash; Every Spring and Fall</h3>
-        <p class="text-gray-700 mt-2">
-          The Pollinators group sponsors native plant swaps twice a year. Bring extra cuttings, seedlings, or divisions from your garden and swap with fellow enthusiasts. Details posted here as dates are set.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 class="font-bold text-green-800 text-lg">Local Events Table</h3>
-        <p class="text-gray-700 mt-2">
-          We often have an information table at community events: the Takoma Park Folk Festival, Earth Day celebrations, and National Pollinator Week (around June 20). Stop by to learn about native plants and pick up resources.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3 class="font-bold text-green-800 text-lg">Zoom Meetings</h3>
-        <p class="text-gray-700 mt-2">
-          The Pollinators meet every other Thursday morning by Zoom from 9:00 to 10:30 AM. Everyone is welcome to attend. See the <a href="/about/" class="resource-link">About Us</a> page for the zoom link.
-        </p>
-      </div>
+      {recurringActivities?.map((activity) => (
+        <div class="card">
+          <h3 class="font-bold text-green-800 text-lg">{activity.title}</h3>
+          {(Array.isArray(activity.body)) ? (
+            <div class="text-gray-700 mt-2" set:html={serializePortableText(activity.body)} />
+          ) : (
+            <p class="text-gray-700 mt-2 whitespace-pre-line">{activity.body || ''}</p>
+          )}
+        </div>
+      ))}
     </div>
   </div>
 </section>

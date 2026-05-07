@@ -48,6 +48,7 @@ const files = {
   nursery: { file: 'nurseries.json', typeName: 'nursery' },
   landscapeCompany: { file: 'landscapers.json', typeName: 'landscapeCompany' },
   garden: { file: 'gardens.json', typeName: 'garden' },
+  recurringActivity: { file: 'recurring-activities.json', typeName: 'recurringActivity' },
 }
 
 let created = 0
