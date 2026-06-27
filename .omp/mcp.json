@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/can1357/oh-my-pi/main/packages/coding-agent/src/config/mcp-schema.json",
+  "mcpServers": {
+    "Sanity": {
+      "type": "http",
+      "url": "https://mcp.sanity.io/mcp?project_id=z9dgpdy9&dataset=production",
+      "headers": {
+        "Authorization": "Bearer "
+      },
+      "enabled": false
+    }
+  }
+}
