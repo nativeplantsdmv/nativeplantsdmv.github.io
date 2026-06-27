@@ -196,14 +196,11 @@ import PageLayout from '../../layouts/PageLayout.astro';
         { title: 'Friends of Native Trees Takoma (FONTT) - Tree Guide', url: 'https://fontt.org/please-download-our-guide/takoma-park-native-tree-selection-guide/' },
         { title: 'Pollinator Plants: Mid Atlantic Region (PDF)', url: 'https://extension.umd.edu/sites/extension.umd.edu/files/2021-03/FC-MGPub%20Pollinator%20Plants%20Mid-Atlantic%20Region.pdf' },
       ].map(item => (
-        <div class="nursery-entry">
+        <div class="nursery-entry" style="overflow: hidden;">
           {item.image ? (
-            <>
-              <img src={item.image} alt="" class="w-16 h-20 rounded object-cover" />
-              {' '}
-            </>
+            <img src={item.image} alt="" class="float-right ml-4 w-20 h-28 rounded object-cover" />
           ) : null}
-          <a href={item.url} target="_blank" rel="noopener" class="resource-link">{item.title}</a>
+          <a href={item.url} target="_blank" rel="noopener" class="resource-link block">{item.title}</a>
         </div>
       ))}
     </div>
