@@ -66,12 +66,24 @@ export async function sanityFetch<D>(query: string, params: QueryParams = {}): P
 
   // Fallback: parse query and serve from seed data
   const typeMatch = query.match(/\[_type\s*==\s*"(\w+)"]/)
-  if (!typeMatch) {
+  const inMatch = query.match(/\[_type\s+in\s+\[([^\]]+)\]/)
+  
+  let types: string[] = []
+  if (typeMatch) {
+    types = [typeMatch[1]]
+  } else if (inMatch) {
+    types = inMatch[1].split(',').map(s => s.trim().replace(/^"|"$/g, ''))
+  }
+  
+  if (types.length === 0) {
     console.warn('Cannot parse Sanity query for seed fallback:', query.substring(0, 80))
     return [] as D[]
   }
-
-  const typeName = typeMatch[1]
+  
   const seedData = await loadSeedData()
-  return (seedData[typeName] ?? []) as D[]
+  const results: unknown[] = []
+  for (const typeName of types) {
+    results.push(...(seedData[typeName] ?? []))
+  }
+  return results as D[]
 }
