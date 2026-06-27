@@ -10,7 +10,7 @@ if (!sanityProjectId) {
 }
 
 export default defineConfig({
-  site: 'https://nativeplantsdmv.github.io',
+  site: 'https://nativeplantsdmv.com',
   integrations: [tailwind({ applyBaseStyles: true })],
   vite: {
     define: {
