@@ -150,6 +150,26 @@ const lastUpdated = 'March 2026';
     </div>
   </div>
 </section>
+<!-- Organizations Teaser -->
+<section class="section bg-white">
+  <div class="container-narrow">
+    <h2 class="section-title flex items-center gap-3">
+      <span class="text-3xl">🤝</span> Organizations That Promote Native Plants
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
+      {[
+        { name: 'Wild Ones', url: 'https://wildones.org' },
+        { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
+        { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
+      ].map(org => (
+        <div class="card text-center">
+          <h3 class="font-bold text-green-800">{org.name}</h3>
+          <a href={org.url} target="_blank" rel="noopener" class="resource-link text-sm block mt-1">{org.url}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
 <!-- Quick Nav to Sub-pages -->
 <section class="section bg-green-50">
@@ -157,7 +177,7 @@ const lastUpdated = 'March 2026';
     <h2 class="section-title text-center">Explore More</h2>
     <nav class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto" aria-label="Site sections">
       {[
-      //{ label: '🌿 Nurseries', url: '/nurseries/', desc: 'Full directory of native plant vendors' },
+        { label: '🚫 Invasives', url: '/invasives/', desc: 'Non-native species to watch for' },
         { label: '🏡 Landscapers', url: '/landscapers/', desc: 'Companies that use mostly natives' },
         { label: '🌳 Gardens to Visit', url: '/gardens-to-visit/', desc: 'Public gardens and arboretums' },
         { label: '📚 Resources', url: '/resources/', desc: 'Plant guides, ID apps, organizations' },
