@@ -1,4 +1,7 @@
 ---
+import { getLastUpdated } from '../lib/lastUpdated';
+
+const lastUpdated = await getLastUpdated();
 ---
 
 <footer class="bg-green-900 text-green-200 mt-auto">
@@ -40,7 +43,7 @@
     </div>
 
     <div class="border-t border-green-800 mt-6 pt-4 text-center text-xs text-green-300">
-      Last updated: March 2026 &middot; Content maintained by Ken & The Pollinators group
+      Last updated: {lastUpdated} &middot; Content maintained by Ken & The Pollinators group
     </div>
   </div>
 </footer>
