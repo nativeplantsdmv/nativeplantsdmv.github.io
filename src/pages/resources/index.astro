@@ -178,14 +178,14 @@ import PageLayout from '../../layouts/PageLayout.astro';
     </h2>
     <div class="grid gap-4 max-w-3xl mt-6">
       {[
-        { title: 'Native Plants for Shady Slopes', url: 'https://extension.umd.edu/resource/native-plants-shady-slopes' },
-        { title: 'Native Plants for Sunny Slopes', url: 'https://extension.umd.edu/resource/native-plants-sunny-slopes' },
-        { title: 'Regional Native Plant Vendors (Retail and Wholesale)', url: 'https://mdflora.org/nurseries.html' },
         {
-          title: 'Piedmont Region MD Native Plant Guide (MNPS)',
+          title: 'Piedmont Region: Maryland Native Plant Guide book',
           url: 'https://mdflora.org/Sys/Store/Products/404087',
           image: 'https://mdflora.org/resources/2354725/PiedmontGuideCover.png',
         },
+        { title: 'Native Plants for Shady Slopes', url: 'https://extension.umd.edu/resource/native-plants-shady-slopes' },
+        { title: 'Native Plants for Sunny Slopes', url: 'https://extension.umd.edu/resource/native-plants-sunny-slopes' },
+        { title: 'Regional Native Plant Vendors (Retail and Wholesale)', url: 'https://mdflora.org/nurseries.html' },
         { title: 'Rainscapes Plants Guide (Montgomery County, MD)', url: 'https://www.sierraclub.org/sites/www.sierraclub.org/files/sce/maryland-chapter/Campaigns/Natural_Places/Native%20Plants%20Shrubs%20Sunny%20Shade%20Invasives%20Deer%20Resistant%20-%20Copy.pdf' },
         { title: 'Recommended Native Plants for Maryland', url: 'https://extension.umd.edu/resource/recommended-native-plants-maryland' },
         { title: 'Native Plant Top 10 Lists (grownative.org)', url: 'https://grownative.org/learn/top-10-lists/' },
@@ -199,7 +199,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
         <div class="nursery-entry">
           {item.image ? (
             <>
-              <img src={item.image} alt="" class="w-8 h-8 rounded object-cover" />
+              <img src={item.image} alt="" class="w-16 h-20 rounded object-cover" />
               {' '}
             </>
           ) : null}
