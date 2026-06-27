@@ -69,7 +69,7 @@ function renderNoteContent(note: any): string {
     <h2 class="section-title text-center">Native Plant Exchanges &mdash; {events?.[0] ? new Date(events[0].dateStart).getFullYear() : '2026'} Season</h2>
 
     <div class="space-y-6">
-      {events?.map((event, idx) => {
+      {events?.length ? events.map((event, idx) => {
         const badge = formatDateBadge(event.dateStart);
         const times = formatTime(event.dateStart);
         const noteClass = event.noteType ? noteColors[event.noteType] : null;
@@ -132,7 +132,7 @@ function renderNoteContent(note: any): string {
             </div>
           </article>
         );
-      })}
+      }) : <p class="text-gray-500 text-center italic">More coming soon!</p>}
     </div>
 
     <!-- Plant exchange photo -->
