@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .env
+.omp/
 .DS_Store
 .astro
 src/env.d.ts
