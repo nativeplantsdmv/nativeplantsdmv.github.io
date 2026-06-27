@@ -16,7 +16,7 @@ const lastUpdated = 'March 2026';
           Welcome to<br/>NativePlantsDMV.com
         </h1>
         <div class="flex-shrink-0 flex flex-col items-center text-center" style="margin-bottom: 0.5rem;">
-          <img src="/logo/climate-action-coffee.png" alt="Climate Action Coffee logo" class="h-14 w-auto rounded"/>
+          <a href="https://sites.google.com/view/climateactioncoffee" target="_blank" rel="noopener" class="text-xs sm:text-sm text-green-200 underline font-medium hover:text-white transition-colors"><img src="/logo/climate-action-coffee.png" alt="Climate Action Coffee logo" class="h-14 w-auto rounded"/></a>
           <span class="text-xs sm:text-sm text-green-200 mt-1 font-medium">Part of</span>
           <a href="https://sites.google.com/view/climateactioncoffee" target="_blank" rel="noopener" class="text-xs sm:text-sm text-green-200 underline font-medium hover:text-white transition-colors">Climate Action Coffee</a>
         </div>
@@ -88,25 +88,22 @@ const lastUpdated = 'March 2026';
     <p class="text-gray-600 mb-6 max-w-3xl">These three sell only true natives — no cultivars. All come highly recommended.</p>
 
     <!-- Top 3 endorsed -->
-    <div class="grid gap-6 max-w-3xl mb-8">
-      <div class="card bg-white border-l-4 border-green-500 shadow-sm">
-        <h3 class="font-bold text-lg text-green-800">Bona Terra</h3>
-        <p class="text-gray-600 text-sm">(202) 507-9648</p>
-        <a href="https://bonaterradc.com" target="_blank" rel="noopener" class="resource-link text-sm">bonaterradc.com</a>
-        <p class="text-gray-700 mt-2">The largest retail inventory of strictly native plants using restorative growing methods in the DC area.</p>
-      </div>
-
-      <div class="card bg-white border-l-4 border-green-500 shadow-sm">
-        <h3 class="font-bold text-lg text-green-800">Chesapeake Natives</h3>
-        <a href="http://chesapeakenatives.org" target="_blank" rel="noopener" class="resource-link text-sm">chesapeakenatives.org</a>
-        <p class="text-gray-700 mt-2">The gold standard for native plantings in MD. Only local ecotypes.</p>
-      </div>
-
-      <div class="card bg-white border-l-4 border-green-500 shadow-sm">
-        <h3 class="font-bold text-lg text-green-800">Earth Sangha Nursery</h3>
-        <a href="https://www.earthsangha.org/" target="_blank" rel="noopener" class="resource-link text-sm">earthsangha.org</a>
-        <p class="text-gray-700 mt-2">Nonprofit public charity based in DC. Ecological restoration as a form of socially engaged Buddhism.</p>
-      </div>
+    <div class="space-y-3 max-w-xl">
+      <a href="https://bonaterradc.com" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-lg bg-white border border-gray-200 hover:border-green-400 transition-colors group">
+        <span class="font-semibold text-green-800 group-hover:underline">Bona Terra</span>
+        <span class="text-gray-500 text-sm">bonaterradc.com</span>
+        <span class="text-gray-400 text-sm italic ml-auto hidden sm:inline">Largest retail native inventory in DC</span>
+      </a>
+      <a href="http://chesapeakenatives.org" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-lg bg-white border border-gray-200 hover:border-green-400 transition-colors group">
+        <span class="font-semibold text-green-800 group-hover:underline">Chesapeake Natives</span>
+        <span class="text-gray-500 text-sm">chesapeakenatives.org</span>
+        <span class="text-gray-400 text-sm italic ml-auto hidden sm:inline">Local ecotypes only</span>
+      </a>
+      <a href="https://www.earthsangha.org/" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-lg bg-white border border-gray-200 hover:border-green-400 transition-colors group">
+        <span class="font-semibold text-green-800 group-hover:underline">Earth Sangha Nursery</span>
+        <span class="text-gray-500 text-sm">earthsangha.org</span>
+        <span class="text-gray-400 text-sm italic ml-auto hidden sm:inline">DC nonprofit, ecological restoration</span>
+      </a>
     </div>
 
     <div class="text-center">
@@ -121,7 +118,7 @@ const lastUpdated = 'March 2026';
     <h2 class="section-title text-center">Explore More</h2>
     <nav class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl mx-auto" aria-label="Site sections">
       {[
-        { label: '🌿 Nurseries', url: '/nurseries/', desc: 'Full directory of native plant vendors' },
+      //{ label: '🌿 Nurseries', url: '/nurseries/', desc: 'Full directory of native plant vendors' },
         { label: '🏡 Landscapers', url: '/landscapers/', desc: 'Companies that use mostly natives' },
         { label: '🌳 Gardens to Visit', url: '/gardens-to-visit/', desc: 'Public gardens and arboretums' },
         { label: '📚 Resources', url: '/resources/', desc: 'Plant guides, ID apps, organizations' },
