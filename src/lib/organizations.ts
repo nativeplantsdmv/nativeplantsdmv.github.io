@@ -14,4 +14,5 @@ export const organizations: Organization[] = [
   },
   { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
   { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
+  { name: 'Virginia Native Plant Society', url: 'https://vnps.org/' },
 ];
