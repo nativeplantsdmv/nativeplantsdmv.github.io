@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 .omp/
+omp-session-*.html
 .DS_Store
 .astro
 src/env.d.ts
