@@ -54,7 +54,7 @@ const canonicalUrl = Astro.url.href;
   </script>
 </head>
 <body class="flex flex-col min-h-screen">
-  <Header title={siteTitle} currentPage={title} />
+  <Header title={siteTitle} />
 
   <main class="flex-grow py-8 sm:py-12">
     <slot />
@@ -71,6 +71,8 @@ const canonicalUrl = Astro.url.href;
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
         menu.classList.toggle('hidden');
+        document.getElementById('menu-icon-open')?.classList.toggle('hidden');
+        document.getElementById('menu-icon-close')?.classList.toggle('hidden');
       });
     }
   </script>

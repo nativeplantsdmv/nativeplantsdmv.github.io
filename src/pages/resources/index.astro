@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import { organizations } from '../../lib/organizations';
 ---
 
 <PageLayout title="Resources" description="Reference guides, plant identification apps, organizations, and educational resources for native gardening in the DC Metro area.">
@@ -123,15 +124,11 @@ import PageLayout from '../../layouts/PageLayout.astro';
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-      {[
-        { name: 'Wild Ones', url: 'https://wildones.org', sub: 'Local chapter' },
-        { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
-        { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
-      ].map(org => (
+      {organizations.map(org => (
         <div class="card text-center">
           <h3 class="font-bold text-green-800">{org.name}</h3>
           <a href={org.url} target="_blank" rel="noopener" class="resource-link text-sm block mt-1">{org.url}</a>
-          {org.sub && <p class="text-gray-600 text-xs mt-2">{org.sub}: <a href="https://nationscapitalregion.wildones.org/" target="_blank" rel="noopener" class="resource-link">nationscapitalregion.wildones.org</a></p>}
+          {org.sub && <p class="text-gray-600 text-xs mt-2">{org.sub}: <a href={org.subUrl ?? ''} target="_blank" rel="noopener" class="resource-link">{org.subUrl}</a></p>}
         </div>
       ))}
     </div>

@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { getLastUpdated } from '../lib/lastUpdated';
+import { organizations } from '../lib/organizations';
 
 const lastUpdated = await getLastUpdated();
 ---
@@ -154,11 +155,7 @@ const lastUpdated = await getLastUpdated();
   <div class="container-narrow">
     <h2 class="section-title text-center">Organizations That Promote Native Plants</h2>
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-      {[
-        { name: 'Wild Ones', url: 'https://wildones.org' },
-        { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
-        { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
-      ].map(org => (
+      {organizations.map(org => (
         <div class="card text-center">
           <h3 class="font-bold text-green-800">{org.name}</h3>
           <a href={org.url} target="_blank" rel="noopener" class="resource-link text-sm block mt-1">{org.url}</a>

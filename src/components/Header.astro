@@ -1,20 +1,21 @@
 ---
 interface Props {
   title: string;
-  currentPage: string;
 }
 
-const { title, currentPage } = Astro.props;
+const { title } = Astro.props;
+
+const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { label: 'Home', path: '/', active: currentPage === 'Home' },
-  { label: 'About Us', path: '/about/', active: currentPage === 'About Us' },
-  { label: 'Resources', path: '/resources/', active: currentPage === 'Resources' },
-  { label: 'Current Events', path: '/events/', active: currentPage === 'Current Events' },
-  { label: 'Invasives', path: '/invasives/', active: currentPage === 'Non-Native Invasives' },
-  { label: 'Gardens to Visit', path: '/gardens-to-visit/', active: currentPage === 'Gardens to Visit' },
-  { label: 'Nurseries', path: '/nurseries/', active: currentPage === 'Nurseries' },
-  { label: 'Landscapers', path: '/landscapers/', active: currentPage === 'Landscapers' },
+  { label: 'Home', path: '/', active: currentPath === '/' },
+  { label: 'About Us', path: '/about/', active: currentPath === '/about/' },
+  { label: 'Resources', path: '/resources/', active: currentPath === '/resources/' },
+  { label: 'Current Events', path: '/events/', active: currentPath === '/events/' },
+  { label: 'Invasives', path: '/invasives/', active: currentPath === '/invasives/' },
+  { label: 'Gardens to Visit', path: '/gardens-to-visit/', active: currentPath === '/gardens-to-visit/' },
+  { label: 'Nurseries', path: '/nurseries/', active: currentPath === '/nurseries/' },
+  { label: 'Landscapers', path: '/landscapers/', active: currentPath === '/landscapers/' },
 ];
 ---
 
@@ -49,9 +50,13 @@ const navItems = [
           class="inline-flex items-center justify-center p-2 rounded-lg text-green-100 hover:bg-green-600/50 transition-colors"
           aria-label="Toggle menu"
           aria-expanded="false"
+          aria-controls="mobile-menu"
         >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>

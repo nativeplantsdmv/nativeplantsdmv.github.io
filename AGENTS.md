@@ -17,4 +17,4 @@ Use `.skills/sanity-api/SKILL.md` for all Sanity Content API operations. Direct 
 ## Page Conventions
 
 - Homepage hero: title + Climate Action Coffee badge centered together in a flex row; intro paragraph below butterfly photos uses `text-center max-w-2xl mx-auto`.
-- Tailwind CSS via CDN (config in `public/tailwind.config.js`). Standard utility classes for layout, no custom component library.
+- Tailwind CSS via `@astrojs/tailwind` (config in `tailwind.config.cjs`). Standard utility classes for layout, no custom component library.

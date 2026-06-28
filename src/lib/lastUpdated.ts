@@ -29,6 +29,8 @@ async function sanityLastEdit(): Promise<Date | null> {
 export async function getLastUpdated(): Promise<string> {
   const gitDate = gitLastCommit()
   const sanityDate = await sanityLastEdit()
+  // Note: seed fallback (no SANITY_PROJECT_ID) has no _updatedAt field in
+  // the seed JSON, so sanityLastEdit() returns null and we fall back to git.
 
   const date = gitDate && sanityDate
     ? (gitDate > sanityDate ? gitDate : sanityDate)
