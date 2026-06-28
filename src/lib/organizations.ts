@@ -1,8 +1,8 @@
 export interface Organization {
   name: string;
   url: string;
+  /* Label for a sub-link (with subUrl), or plain-text footnote if subUrl is absent. */
   sub?: string;
-  subUrl?: string;
 }
 
 export const organizations: Organization[] = [
@@ -14,5 +14,5 @@ export const organizations: Organization[] = [
   },
   { name: 'Maryland Native Plant Society', url: 'https://mdflora.org' },
   { name: 'Friends of Native Trees in Takoma (FONTT)', url: 'https://fontt.org/' },
-  { name: 'Virginia Native Plant Society', url: 'https://vnps.org/' },
+  { name: 'Virginia Native Plant Society', url: 'https://vnps.org/', sub: 'All 50 states have a native plant society' },
 ];

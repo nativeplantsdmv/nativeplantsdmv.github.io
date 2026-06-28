@@ -119,10 +119,10 @@ import { organizations } from '../../lib/organizations';
 </section>
 
 <!-- Garden Design Resources -->
-<section class="section bg-white">
+<section id="garden-design" class="section bg-white">
   <div class="container-narrow">
     <h2 class="section-title flex items-center gap-3">
-      <span class="text-3xl">🌿</span> Garden Design Resources
+      <span class="text-3xl">🌿</span> Free Garden Design Resources
     </h2>
     <p class="text-gray-600 mb-6">Whether you're starting from scratch or expanding an existing bed, these guides and tools will help you plan a garden that works for your space and supports local wildlife.</p>
 
@@ -185,7 +185,7 @@ import { organizations } from '../../lib/organizations';
         <div class="card text-center">
           <h3 class="font-bold text-green-800">{org.name}</h3>
           <a href={org.url} target="_blank" rel="noopener" class="resource-link text-sm block mt-1">{org.url}</a>
-          {org.sub && <p class="text-gray-600 text-xs mt-2">{org.sub}: <a href={org.subUrl ?? ''} target="_blank" rel="noopener" class="resource-link">{org.subUrl}</a></p>}
+          {org.sub && (org.subUrl ? <p class="text-gray-600 text-xs mt-2">{org.sub}: <a href={org.subUrl} target="_blank" rel="noopener" class="resource-link">{org.subUrl}</a></p> : <p class="text-gray-600 text-xs mt-2 italic">{org.sub}</p>)}
         </div>
       ))}
     </div>
