@@ -135,5 +135,23 @@
   url: "https://www.bluevioletnatives.com"
   phone: "301-646-4414"
   address: "12508 W Old Baltimore Rd, Boyds, MD 20841"
-  notes: "Shop online for pickup in Boyds, MD. Open nursery hours: Tuesdays 10 AM-3 PM, Thursdays 2 PM-7 PM."
+  notes:
+    - _type: block
+      style: normal
+      children:
+        - _type: span
+          marks: ["link-shop"]
+          text: "Shop Online for Pickup in Boyds, MD"
+        - _type: span
+          text: " | "
+        - _type: span
+          marks: ["link-hours"]
+          text: "Open Nursery Hours: Tuesdays 10 AM-3 PM, Thursdays 2 PM-7 PM"
+      markDefs:
+        - _key: "link-shop"
+          _type: link
+          href: "https://www.bluevioletnatives.net/category/all-products"
+        - _key: "link-hours"
+          _type: link
+          href: "https://www.bluevioletnatives.net/"
   sortOrder: 23

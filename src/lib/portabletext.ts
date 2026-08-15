@@ -79,10 +79,12 @@ function renderBlockText(block: PortableTextBlock, markDefs: Map<string, {href?:
     for (const markId of child.marks) {
       const def = markDefs.get(markId)
       if (def && def.href) {
+        const isInternal = def.href.startsWith('/')
+        const targetAttr = isInternal ? '' : ' target="_blank" rel="noopener"'
         const titleAttr = def.title ? ` title="${escapeHtml(def.title)}"` : ''
         marksWithLinks.push({
           markId,
-          openTag: `<a href="${escapeHtml(def.href)}" target="_blank" rel="noopener"${titleAttr}>`,
+          openTag: `<a href="${escapeHtml(def.href)}" class="resource-link"${targetAttr}${titleAttr}>`,
           closeTag: '</a>',
         })
       } else {

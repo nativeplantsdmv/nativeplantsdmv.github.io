@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import { nurseries } from '../../lib/data';
+import { serializePortableText } from '../../lib/portabletext';
 
 const endorsed = nurseries.filter(n => n.isEndorsed);
 const others = nurseries.filter(n => !n.isEndorsed).sort((a, b) => a.name.localeCompare(b.name));
@@ -54,7 +55,11 @@ const others = nurseries.filter(n => !n.isEndorsed).sort((a, b) => a.name.locale
           {nursery.phone && <p class="text-gray-600 text-sm mt-1">{nursery.phone}</p>}
           {nursery.contactEmail && <p class="text-gray-600 text-sm">{nursery.contactEmail}</p>}
           {nursery.address && <p class="text-gray-600 text-sm">{nursery.address}</p>}
-          {nursery.notes && <p class="text-gray-700 mt-2 text-sm">{nursery.notes}</p>}
+          {Array.isArray(nursery.notes) ? (
+            <div class="text-gray-700 mt-2 text-sm" set:html={serializePortableText(nursery.notes)} />
+          ) : nursery.notes ? (
+            <p class="text-gray-700 mt-2 text-sm">{nursery.notes}</p>
+          ) : null}
         </div>
       ))}
     </div>

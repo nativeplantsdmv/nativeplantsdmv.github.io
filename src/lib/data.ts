@@ -9,7 +9,7 @@ export interface Nursery {
   contactEmail?: string
   address?: string
   description?: string
-  notes?: string
+  notes?: string | unknown[]
   isEndorsed?: boolean
   sortOrder?: number
 }
