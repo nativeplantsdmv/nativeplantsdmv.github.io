@@ -1,8 +1,9 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { nurseries } from '../../lib/data';
+import { getNurseries } from '../../lib/data';
 import { serializePortableText } from '../../lib/portabletext';
 
+const nurseries = getNurseries();
 const endorsed = nurseries.filter(n => n.isEndorsed);
 const others = nurseries.filter(n => !n.isEndorsed).sort((a, b) => a.name.localeCompare(b.name));
 ---

@@ -1,6 +1,8 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { gardens } from '../../lib/data';
+import { getGardens } from '../../lib/data';
+
+const gardens = getGardens();
 ---
 
 <PageLayout title="Gardens to Visit" description="Public native gardens, arboretums, and natural spaces in the DC Metro area worth visiting.">

@@ -1,8 +1,10 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { events, recurringActivities } from '../../lib/data';
+import { getEvents, getRecurringActivities } from '../../lib/data';
 import { serializePortableText } from '../../lib/portabletext';
 
+const events = getEvents();
+const recurringActivities = getRecurringActivities();
 // Helper to format date components for the calendar badge
 function formatDateBadge(dateStr: string): { month: string, day: number } {
   const d = new Date(dateStr);
