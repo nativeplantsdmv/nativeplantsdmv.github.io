@@ -3,7 +3,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import { getLastUpdated } from '../lib/lastUpdated';
 import { organizations } from '../lib/organizations';
 
-const lastUpdated = await getLastUpdated();
+const lastUpdated = getLastUpdated();
 ---
 
 <PageLayout title="Home" description="Native plant resources for the DC Metro area (DMV). Nurseries, plant swaps, landscaping companies, and everything you need to grow a garden that supports wildlife.">

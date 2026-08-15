@@ -1,13 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { sanityFetch } from '../../lib/sanity';
-import { serializePortableText, portableTextToPlainText } from '../../lib/portabletext';
-
-const eventsQuery = `*[_type == "event"] | order(dateStart asc)`;
-const events = await sanityFetch(eventsQuery);
-
-const recurringQuery = `*[_type == "recurringActivity"] | order(sortOrder asc)`;
-const recurringActivities = await sanityFetch(recurringQuery);
+import { events, recurringActivities } from '../../lib/data';
+import { serializePortableText } from '../../lib/portabletext';
 
 // Helper to format date components for the calendar badge
 function formatDateBadge(dateStr: string): { month: string, day: number } {
@@ -66,10 +60,10 @@ function renderNoteContent(note: any): string {
 <!-- Events -->
 <section class="section bg-white">
   <div class="container-narrow max-w-3xl mx-auto">
-    <h2 class="section-title text-center">Native Plant Exchanges &mdash; {events?.length ? new Date(events[0].dateStart).getFullYear() : new Date().getFullYear()} Season</h2>
+    <h2 class="section-title text-center">Native Plant Exchanges &mdash; {events.length ? new Date(events[0].dateStart).getFullYear() : new Date().getFullYear()} Season</h2>
 
     <div class="space-y-6">
-      {events?.length ? events.map((event, idx) => {
+      {events.length ? events.map((event) => {
         const badge = formatDateBadge(event.dateStart);
         const times = formatTime(event.dateStart);
         const noteClass = event.noteType ? noteColors[event.noteType] : null;
@@ -156,13 +150,13 @@ function renderNoteContent(note: any): string {
   </div>
 </section>
 
-<!-- Recurring Activities (from Sanity) -->
+<!-- Recurring Activities -->
 <section class="section bg-stone-50">
   <div class="container-narrow max-w-3xl mx-auto">
     <h2 class="section-title text-center">Recurring Activities</h2>
 
     <div class="grid gap-4">
-      {recurringActivities?.map((activity) => (
+      {recurringActivities.map((activity) => (
         <div class="card">
           <h3 class="font-bold text-green-800 text-lg">{activity.title}</h3>
           {(Array.isArray(activity.body)) ? (

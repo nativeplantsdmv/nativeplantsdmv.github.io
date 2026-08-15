@@ -1,0 +1,23 @@
+# Upcoming events (plant swaps, workshops) — /events/
+#
+# Currently empty. To add an event, copy the template below, fill it in,
+# and commit — the site deploys automatically.
+#
+# Rules:
+# - dateStart MUST stay a double-quoted ISO string. Unquoted dates would
+#   parse as YAML Date objects and break the time display.
+# - description is plain text; blank lines inside the block become line breaks.
+# - noteType: "amber" or "green" shows a callout box with noteContent.
+#
+# Template:
+# - title: "Native Plant Swap at Example Park"
+#   venue: "Silver Spring, MD"
+#   address: "7719 Chicago Ave, Silver Spring"
+#   dateStart: "2026-09-12T17:00:00.000Z"   # 1:00 PM Eastern (17:00 UTC)
+#   hosts: "CAC and friends"
+#   description: |-
+#     1:00 PM to 3:00 PM
+#
+#     New to plant swaps? You don't need to bring anything (although a
+#     plate of cookies would be nice). Come learn, socialize, and take
+#     home some natives!

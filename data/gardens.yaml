@@ -1,0 +1,36 @@
+# Public native gardens worth visiting — /gardens-to-visit/
+# Rendered in alphabetical order.
+#
+# All strings are double-quoted on purpose (YAML eats colons/quotes otherwise).
+
+- name: Triangle Park
+  description: "Near the Takoma Metro, where Blair Road and 4th St. meet."
+- name: Glenside Garden
+  description: "At Glenside Dr. and Jackson Ave., follow the path that takes you over the bridge. In Takoma Park, MD. Maintained by the neighbors who live right there."
+- name: "University of MD, College Park"
+  url: "https://arboretum.umd.edu/maryland-natives-shade-garden"
+  description: "Small garden between Francis Scott Key Hall and Woods Hall on McKeldin Mall. A dozen natives have labels."
+- name: Delaware Botanic Garden
+  url: "http://www.delawaregardens.org"
+  address: "30220 Pine Neck Road, Dagsboro, DE 19939"
+  phone: "302-321-9061"
+- name: Patterson Park Audubon Center
+  url: "https://patterson.audubon.org"
+  address: "2901 E. Baltimore St., Box 2, Baltimore, MD 21224"
+  phone: "410-558-BIRD (2473)"
+- name: "Mt. Cuba Center (My favorite!)"
+  url: "https://mtcubecenter.org/"
+  address: "3120 Barley Mill Rd, Hockessin, DE 19707"
+  phone: "302.239.4244"
+- name: "Stoneleigh: A Natural Garden"
+  url: "https://stoneleighgarden.org/garden/home/"
+  address: "1829 East County Line Road, Villanova, PA 19085"
+  phone: "610-353-5587"
+- name: Adkins Arboretum
+  url: "https://www.adkinsarboretum.org"
+  address: "12610 Eveland Road, Ridgely, MD 21660"
+- name: "Blandy Experimental Farm (State Arboretum of Virginia)"
+  url: "https://blandy.virginia.edu"
+  address: "400 Blandy Farm Lane, Boyce, VA 22620"
+  phone: "540-837-1758"
+  contactEmail: "blandy@virginia.edu"

@@ -1,0 +1,50 @@
+# Recurring activities shown on the /events/ page, in sortOrder order.
+#
+# body is Portable Text: a list of blocks; each block has children (spans).
+# Links live in the block's markDefs and are referenced by the span's marks
+# using the markDef's _key. The page renders this with
+# serializePortableText() (src/lib/portabletext.ts), so keep the structure.
+
+- title: Plant Swaps — Every Spring and Fall
+  sortOrder: 1
+  body:
+    - _type: block
+      style: normal
+      children:
+        - _type: span
+          text: "The Pollinators group sponsors native plant swaps twice a year. Bring extra cuttings, seedlings, or divisions from your garden and swap with fellow enthusiasts. Details posted here as dates are set."
+      markDefs: []
+- title: Local Events Table
+  sortOrder: 2
+  body:
+    - _type: block
+      style: normal
+      children:
+        - _type: span
+          text: "We often have an information table at community events: the "
+        - _type: span
+          marks: ["link-tpff"]
+          text: "Takoma Park Folk Festival"
+        - _type: span
+          text: ", Earth Day celebrations, and National Pollinator Week (around June 20). Stop by to learn about native plants and pick up resources."
+      markDefs:
+        - _key: "link-tpff"
+          _type: link
+          href: "https://www.tpff.org/"
+- title: Zoom Meetings
+  sortOrder: 3
+  body:
+    - _type: block
+      style: normal
+      children:
+        - _type: span
+          text: "The Pollinators meet every other Thursday morning by Zoom from 9:00 to 10:30 AM. Everyone is welcome to attend. See the "
+        - _type: span
+          marks: ["link-ref"]
+          text: "About Us"
+        - _type: span
+          text: " page for the zoom link."
+      markDefs:
+        - _key: "link-ref"
+          _type: link
+          href: "/about/"

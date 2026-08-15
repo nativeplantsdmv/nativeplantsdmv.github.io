@@ -1,5 +1,4 @@
 import { execSync } from 'node:child_process'
-import { sanityFetch } from './sanity'
 
 function gitLastCommit(): Date | null {
   try {
@@ -11,32 +10,9 @@ function gitLastCommit(): Date | null {
   }
 }
 
-async function sanityLastEdit(): Promise<Date | null> {
-  try {
-    const results: Array<{ _updatedAt: string }> = await sanityFetch(
-      '*[_type in ["event", "nursery", "landscapeCompany", "garden", "recurringActivity"]] | order(_updatedAt desc) [0..0]',
-    )
-    if (results.length > 0 && results[0]._updatedAt) {
-      const d = new Date(results[0]._updatedAt)
-      return isNaN(d.getTime()) ? null : d
-    }
-  } catch {
-    // Sanity unavailable — not a failure condition
-  }
-  return null
-}
-
-export async function getLastUpdated(): Promise<string> {
-  const gitDate = gitLastCommit()
-  const sanityDate = await sanityLastEdit()
-  // Note: seed fallback (no SANITY_PROJECT_ID) has no _updatedAt field in
-  // the seed JSON, so sanityLastEdit() returns null and we fall back to git.
-
-  const date = gitDate && sanityDate
-    ? (gitDate > sanityDate ? gitDate : sanityDate)
-    : (gitDate ?? sanityDate)
-
+// Content lives in data/*.yaml, so the last git commit IS the last content edit.
+export function getLastUpdated(): string {
+  const date = gitLastCommit()
   if (!date) return 'Unknown'
-
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })
 }

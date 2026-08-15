@@ -1,9 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { sanityFetch } from '../../lib/sanity';
-
-const query = `*[_type == "garden"] | order(name asc)`;
-const gardens = await sanityFetch<typeof gardens>(query);
+import { gardens } from '../../lib/data';
 ---
 
 <PageLayout title="Gardens to Visit" description="Public native gardens, arboretums, and natural spaces in the DC Metro area worth visiting.">
@@ -18,7 +15,7 @@ const gardens = await sanityFetch<typeof gardens>(query);
     <p class="text-gray-700 mb-6">These public gardens and natural areas showcase native plants in action. Great for inspiration before starting your own garden.</p>
 
     <div class="grid gap-4 max-w-3xl">
-      {gardens?.map(garden => (
+      {gardens.map(garden => (
         <div class="card">
           <h3 class="font-bold text-green-800">{garden.name}</h3>
           {garden.url && <a href={garden.url} target="_blank" rel="noopener" class="resource-link text-sm">{garden.url}</a>}

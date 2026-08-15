@@ -1,9 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
-import { sanityFetch } from '../../lib/sanity';
-
-const query = `*[_type == "landscapeCompany"] | order(name asc)`;
-const companies = await sanityFetch<typeof companies>(query);
+import { landscapers } from '../../lib/data';
 ---
 
 <PageLayout title="Landscapers" description="Native plant landscaping companies and services in the DC Metro area.">
@@ -18,7 +15,7 @@ const companies = await sanityFetch<typeof companies>(query);
     <p class="text-gray-600 italic mb-6">I have not vetted any of these. Let me know if you have a particularly good (or bad) experience with any of them.</p>
 
     <div class="grid gap-4 max-w-3xl">
-      {companies?.map(co => (
+      {landscapers.map(co => (
         <div class="card">
           <h3 class="font-bold text-green-800">{co.name}</h3>
           {co.url && <a href={co.url} target="_blank" rel="noopener" class="resource-link text-sm">{co.url}</a>}

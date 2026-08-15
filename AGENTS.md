@@ -1,18 +1,19 @@
 # Agent Guidelines
 
-## Sanity CMS
+## Content Data
 
-Use `.skills/sanity-api/SKILL.md` for all Sanity Content API operations. Direct REST via `fetch()` in eval — **not** MCP. Token is loaded from `.env` with `env('SANITY_API_TOKEN')`.
+Content for the directory pages lives in `data/*.yaml` (nurseries, landscapers, gardens, events) — the single source of truth. Edit the YAML directly and commit; there is no CMS and no API token. Each file has a header comment with its field rules (quoting, `sortOrder`, `isEndorsed`).
 
 ## Tech Stack
 
 - Astro 4.x
 - Node.js 20+
+- Content: YAML in `data/`, loaded by `src/lib/data.ts`
+
 ## Dev Workflow
 
-- Local dev server: `npm run dev` on port 4321. Hot-reloads on file changes.
+- Local dev server: `npm run dev` on port 4321. Hot-reloads on file changes; data files are re-read per request, so content edits need no restart.
 - Use the headless browser (`browser` tool) to verify visual changes; Astro's type checker has a stale shiki dependency that's not worth fixing.
-- Sanity data is fetched at build time — restart the dev server after content changes to re-fetch.
 
 ## Page Conventions
 

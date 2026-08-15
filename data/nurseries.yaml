@@ -1,0 +1,140 @@
+# Native plant nurseries — /nurseries/
+#
+# isEndorsed: true  → "Top 3" (sell only natives, no cultivars) — shown first,
+#                     with the green border, and on the home page.
+# sortOrder: lower numbers appear first among the non-endorsed.
+#
+# All strings are double-quoted on purpose (YAML eats colons/quotes otherwise).
+
+- name: Bona Terra
+  url: "https://bonaterradc.com"
+  phone: "(202) 507-9648"
+  description: "The largest retail inventory of strictly native plants using restorative growing methods in the DC area."
+  isEndorsed: true
+  sortOrder: 1
+- name: Chesapeake Natives
+  url: "http://chesapeakenatives.org"
+  address: "Rosaryville State Park, Mt. Airy Mansion Greenhouse · 9640 Rosaryville Rd., Upper Marlboro, MD"
+  description: "The gold standard for native plantings in MD. Only local ecotypes. Most sales are online order and pick up, but occasional in-person sales."
+  isEndorsed: true
+  sortOrder: 2
+- name: Earth Sangha Nursery
+  url: "https://www.earthsangha.org/"
+  phone: "(703) 333-3022"
+  address: "6100 Cloud Dr, Springfield, VA 22150"
+  description: "Nonprofit public charity based in DC. Ecological restoration as a form of socially engaged Buddhism."
+  isEndorsed: true
+  sortOrder: 3
+- name: Adkins Arboretum
+  url: "https://www.adkinsarboretum.org/nursery/"
+  address: "12610 Eveland Road, Ridgely, MD 21660"
+  phone: "410.634.2847"
+  sortOrder: 4
+- name: Direct Native Plants
+  url: "http://www.directnativeplants.com/"
+  address: "Middle River, MD 21220"
+  contactEmail: "info@directnativeplants.com or 410-696-1372"
+  notes: "Online orders only"
+  sortOrder: 5
+- name: Edge of the Woods Nursery
+  url: "https://edgeofthewoodsnursery.com/"
+  address: "2415 Route 100, Orefield, PA 18069"
+  phone: "(610) 395-2570"
+  notes: "Specializing in plants native to the Mid-Atlantic and Northeast ecosystems. Landscaping services available year-round."
+  sortOrder: 6
+- name: Herring Run Nursery
+  url: "https://bluewaterbaltimore.org/nursery/"
+  address: "2631 Sisson St., Baltimore, MD"
+  notes: "Accepts online orders starting in spring until everything is sold out or ground freezes. Pick or browse in person."
+  sortOrder: 7
+- name: Izel Plants
+  url: "https://www.izelplants.com"
+  phone: "410-989-3721"
+  notes: "Online orders only. Flats of plugs of natives. Most plants are in bulk."
+  sortOrder: 8
+- name: Kollar Nursery
+  url: "https://www.kollarnursery.com"
+  address: "5200 West Heaps Road, Pylesville, MD 21132"
+  phone: "(410) 836-0500"
+  notes: "On-site sales only: no delivery. Browse inventory online and shop in person."
+  sortOrder: 9
+- name: "Lauren's Garden Service"
+  url: "https://www.laurensgardenservice.com/native-plant-infomation-and-shopping/"
+  address: "13554 Triadelphia Rd, Ellicott City, MD 21042"
+  phone: "410-461-2535"
+  notes: "Website includes list of current stock."
+  sortOrder: 10
+- name: National Wildlife Federation
+  url: "https://gardenforwildlife.com"
+  notes: "Click on Shop, mail order only."
+  sortOrder: 11
+- name: Nature by Design
+  url: "https://www.nature-by-design.com/"
+  address: "300 Calvert Avenue, Alexandria, VA 22301"
+  phone: "703-683-GROW (4769)"
+  notes: "Open for browsing by appointment only. Appointments NOT necessary for curbside pickup of pre-arranged orders."
+  sortOrder: 12
+- name: Plant Me Love
+  url: "https://plantmelove.com/"
+  address: "Potomac, MD"
+  phone: "202-883-3037"
+  contactEmail: "Contact@plantmelove.com"
+  notes: "Native landscaping services including design, installation, sustainable maintenance, consultations, and plant sales. By appointment."
+  sortOrder: 13
+- name: The Pollen Nation
+  url: "https://www.thepollennation.com"
+  address: "Bridgeton, NJ"
+  notes: "They sell plugs, in trays of 25 or more."
+  sortOrder: 14
+- name: Prairie Moon Nursery
+  url: "https://www.prairiemoon.com/"
+  address: "32115 Prairie Lane, Winona, MN 55987"
+  notes: "Online orders only, including winter pre-orders delivering in spring. Notable for offering native plugs and seeds. Delivery only."
+  sortOrder: 15
+- name: Prairie Nursery
+  url: "https://www.prairienursery.com"
+  address: "P.O. Box 306, Westfield, WI 53964"
+  phone: "1-800-476-9453"
+  notes: "On-line sales only."
+  sortOrder: 16
+- name: Redbud Native Plant Nursery
+  url: "https://redbudnative.com"
+  address: "1214 N Middletown Road, Glen Mills, PA 19342"
+  phone: "610-358-4300"
+  notes: "A wide selection of Mid-Atlantic natives including trees, shrubs, vines, grasses, perennials and ferns."
+  sortOrder: 17
+- name: "Seven Bends Nursery, VA"
+  url: "https://www.sevenbends.org"
+  phone: "540-416-2662"
+  contactEmail: "Plants@sevenbends.org"
+  notes: "Order online and pick up 9-12 on Saturdays in Winchester, VA. Address for pickup provided at checkout."
+  sortOrder: 18
+- name: Swamp Rose Coop
+  url: "https://swamprosecoop.com"
+  address: "8900 Georgia Ave, Silver Spring, MD 20910"
+  contactEmail: "hello@swamprosecoop.com"
+  notes: "Online native plant sales and landscaping services - Metro DC area. Behind the church. Sales hours: Friday 2-6, Saturday 10-4."
+  sortOrder: 19
+- name: Tree Talk Natives
+  url: "https://www.treetalknatives.com/"
+  address: "163 Vaughan Hill Rd, Rochester, MA 02770"
+  phone: "508-904-0423"
+  notes: "Locally grown native trees and flowers for New England."
+  sortOrder: 20
+- name: Wildflower Native Plant Nursery
+  url: "https://www.wildflowernativeplants.com"
+  address: "8301 Thoreau Drive, Bethesda, MD 20817"
+  phone: "703-589-6654"
+  contactEmail: "mariana@wildflowernativeplants.com"
+  sortOrder: 21
+- name: "Maryland DNR Nursery (trees only)"
+  url: "https://nursery.dnr.maryland.gov/category-s/1829.htm"
+  contactEmail: "seedlingsales.dnr@maryland.gov"
+  notes: "On-line sale of native Conifers, Deciduous trees and Deciduous shrubs. Buy in groups of 25 (minimum order)."
+  sortOrder: 22
+- name: Blue Violet Natives
+  url: "https://www.bluevioletnatives.com"
+  phone: "301-646-4414"
+  address: "12508 W Old Baltimore Rd, Boyds, MD 20841"
+  notes: "Shop online for pickup in Boyds, MD. Open nursery hours: Tuesdays 10 AM-3 PM, Thursdays 2 PM-7 PM."
+  sortOrder: 23
