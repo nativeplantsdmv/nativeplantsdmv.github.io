@@ -2,8 +2,7 @@
 #
 # isEndorsed: true  → "Top 3" (sell only natives, no cultivars) — shown first,
 #                     with the green border, and on the home page.
-# sortOrder: lower numbers appear first among the non-endorsed.
-#
+# sortOrder: display order among the endorsed. Non-endorsed entries render alphabetically.
 # All strings are double-quoted on purpose (YAML eats colons/quotes otherwise).
 
 - name: Bona Terra
