@@ -9,14 +9,3 @@ src/env.d.ts
 
 # Embedded repo (local clone)
 nativeplantsdmv.github.io/
-
-# Sanity Studio generated files
-sanity/studio/nativeplantsdmv/.sanity/
-sanity/studio/nativeplantsdmv/dist/
-sanity/studio/nativeplantsdmv/node_modules/
-sanity/studio/nativeplantsdmv/package-lock.json
-sanity/studio/nativeplantsdmv/eslint.config.mjs
-sanity/studio/nativeplantsdmv/tsconfig.json
-
-# Development scripts (one-time use)
-scripts/*.mjs
